@@ -1,0 +1,39 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+GET     /login                                  Application.login
+GET     /personal                               Application.personal
+GET     /statistical                            Application.statistical
+GET     /usermanager                            Application.usermanager
+GET     /ordermanager                           Application.ordermanager
+GET     /nightordermanager                      Application.nightordermanager
+GET     /remainroom                             Application.remainroom
+GET     /logs                                   Application.logs
+GET     /error                                  Application.error_404
+GET     /update                                 Application.updateinformation
+GET     /orderedit                              Application.orderedit
+GET     /hotel                                  Application.hotel
+GET     /roommanager                            Application.roommanager
+GET     /nightroommanager                       Application.nightroommanager
+GET     /daytimeroom                            Application.daytimeroom
+GET     /nighttimeroom                          Application.nighttimeroom
+POST    /ajax                                   Application.ajax
+POST    /user/save                              AdminControl.save
+POST    /user/select                            AdminControl.select
+POST    /user/delete                            AdminControl.delete
+POST    /hotel/save                             HotelControl.save
+POST    /add                                    Application.add
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+

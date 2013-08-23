@@ -10,12 +10,12 @@ import javax.persistence.*;
  * Created with IntelliJ IDEA.
  * User: think
  * Date: 13-8-23
- * Time: 下午5:45
+ * Time: 下午7:53
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name="Torderdaytime")
-public class OrderDaytime extends GenericModel{
+@Table(name="Tordernighttime")
+public class OrderNighttime extends GenericModel{
     @Id
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @GeneratedValue(generator = "system-uuid")

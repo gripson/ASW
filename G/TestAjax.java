@@ -15,6 +15,7 @@ import play.db.jpa.Model;
 
 @Entity
 @Table(name="ajax")
+//消息推送
 public class TestAjax extends JPASupport{
 	@Id
     @Required

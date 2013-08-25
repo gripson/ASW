@@ -27,7 +27,7 @@ public class OrderNighttime extends GenericModel{
     public Hotel hotel;
 
     @Required
-    public String fullname;
+    public String fullname;//顾客姓名
 
     @Required
     public String roomtype;

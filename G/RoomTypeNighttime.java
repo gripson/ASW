@@ -15,6 +15,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TroomtypeNight")
+//夜间房房型
 public class RoomTypeNighttime extends GenericModel{
     @Id
     @Column(name="roomtype")

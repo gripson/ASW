@@ -15,25 +15,26 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TroommanagerdaytimeF")
+//日间房余房管理周日至周四
 public class RoomManagerDaytimeF extends GenericModel {
     @Id
     @Column(name="roomtype")
     @MaxSize(11)
-    public String roomtype;
+    public String roomtype;//房型
 
     @Required
     @ManyToOne
-    public Hotel hotel;
+    public Hotel hotel;//酒店ID
 
     @Required
-    public String starttime;
+    public String starttime;//开售时间
 
     @Required
-    public String endtime;
+    public String endtime;//停售时间
 
     @Required
-    public String roomnumber;
+    public String roomnumber;//房间余量
 
     @Required
-    public String roomprice;
+    public String roomprice;//售价
 }

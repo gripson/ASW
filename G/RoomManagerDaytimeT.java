@@ -15,6 +15,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TroommanagerdaytimeT")
+//周五至周六日间房管理
 public class RoomManagerDaytimeT extends GenericModel {
     @Id
     @Column(name="roomtype")
@@ -26,15 +27,15 @@ public class RoomManagerDaytimeT extends GenericModel {
     public Hotel hotel;
 
     @Required
-    public String starttime;
+    public String starttime;//开售时间
 
     @Required
-    public String endtime;
+    public String endtime;//停售时间
 
     @Required
-    public String roomnumber;
+    public String roomnumber;//余房数
 
     @Required
-    public String roomprice;
+    public String roomprice;//售价
 
 }

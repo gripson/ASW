@@ -15,6 +15,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="Troomtype")
+//日间房房型管理
 public class RoomTypeDaytime extends GenericModel {
     @Id
     @Column(name="roomtype")
@@ -29,32 +30,32 @@ public class RoomTypeDaytime extends GenericModel {
     public String bed;
 
     @Required
-    public String breakfast;
+    public String breakfast;//早餐
 
     @Required
     public String network;
 
     @Required
-    public String loveprice;
+    public String loveprice;//房型的售价
 
     @Required
-    public String publicprice;
+    public String publicprice;//门市价 目前没有用处
 
     @Required
-    public String commissionrate;
+    public String commissionrate;//佣金比率
 
     @Required
-    public String fixedcommission;
+    public String fixedcommission;//固定佣金
 
     @Required
-    public String state;
+    public String state;//状态
 
     @Required
-    public String area;
+    public String area;//面积
 
     @Required
-    public String floor;
+    public String floor;//楼层
 
     @Required
-    public String bednumber;
+    public String bednumber;//床个数
 }

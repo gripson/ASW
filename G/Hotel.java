@@ -22,9 +22,9 @@ public class Hotel extends GenericModel {
     @Required
     public String hotelName;
 
-    @Required
-    @OneToOne
-    public Admin admin;//酒店负责人的用户名
+//    @Required
+//    @OneToOne
+//    public Admin admin;//酒店负责人的用户名
 
     @Required
     public int hotelStar;//酒店星级
@@ -33,7 +33,7 @@ public class Hotel extends GenericModel {
     public String  hotelAddress;//酒店地址
 
     @Required
-    public double  hotelPrice;//酒店最低售价
+    public String  hotelPrice;//酒店最低售价
 
     @Required
     public double  hotelReturn;//酒店返还额

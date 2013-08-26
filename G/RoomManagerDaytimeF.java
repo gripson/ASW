@@ -1,10 +1,12 @@
 package models;
 
+import org.hibernate.annotations.GenericGenerator;
 import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.db.jpa.GenericModel;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,13 +20,17 @@ import javax.persistence.*;
 //日间房余房管理周日至周四
 public class RoomManagerDaytimeF extends GenericModel {
     @Id
-    @Column(name="roomtype")
-    @MaxSize(11)
-    public String roomtype;//房型
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @GeneratedValue(generator = "system-uuid")
+    @Column(name="id")
+    public String id;
 
     @Required
     @ManyToOne
-    public Hotel hotel;//酒店ID
+    public RoomTypeDaytime roomtypedaytime;
+
+    @Required
+    public String roomtype;//房型
 
     @Required
     public String starttime;//开售时间
@@ -37,4 +43,27 @@ public class RoomManagerDaytimeF extends GenericModel {
 
     @Required
     public String roomprice;//售价
+
+    //style="display:none;" 隐藏属性
+    public void toTd(StringBuffer html){
+        html.append("<tr class=\"odd\">");
+        html.append("<td>"+this.roomtype+"</td>");
+        html.append("<td>"+this.starttime+"</td>");
+        html.append("<td>"+this.endtime+"</td>");
+        html.append("<td>"+this.roomnumber+"</td>");
+        html.append("<td>"+this.roomprice+"</td>");
+
+        html.append("<td><a class=\"edit\" href=\"javascript:;\">修改</a></td>");
+        html.append("<td><a id="+this.roomtype+" class=\"delete\" href=\"javascript:;\">删除</a></td>");
+        html.append("</tr>");
+    }
+
+    public static String tohtml(List<RoomManagerDaytimeF> roommanagerdaytimefs){
+        StringBuffer html=new StringBuffer();
+
+        for(int i=0;i<roommanagerdaytimefs.size();i++)
+            roommanagerdaytimefs.get(i).toTd(html);
+
+        return html.toString();
+    }
 }

@@ -24,6 +24,10 @@ public class Admin extends GenericModel {
     public String userName;
 
     @Required
+    @OneToOne
+    public Hotel hotel;//酒店负责人的用户名
+
+    @Required
     public String password;
 
     @Required

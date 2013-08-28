@@ -33,7 +33,7 @@ public class RoomTypeDaytime extends GenericModel {
     public Hotel hotel;
 
     @Required
-    public String bed;
+    public String bed;//床规格
 
     @Required
     public String breakfast;//早餐
@@ -42,7 +42,10 @@ public class RoomTypeDaytime extends GenericModel {
     public String network;
 
     @Required
-    public String loveprice;//房型的售价
+    public String loveprice;//房型的默认售价
+
+    @Required
+    public int preroom;//每日预留房间数量
 
     @Required
     public String publicprice;//门市价 目前没有用处
@@ -74,6 +77,7 @@ public class RoomTypeDaytime extends GenericModel {
         html.append("<td>"+this.network+"</td>");
         html.append("<td>"+this.loveprice+"</td>");
         html.append("<td >"+this.publicprice+"</td>");
+        html.append("<td >"+this.preroom+"</td>");
         html.append("<td >"+this.commissionrate+"</td>");
         html.append("<td >"+this.fixedcommission+"</td>");
         html.append("<td >"+this.state+"</td>");

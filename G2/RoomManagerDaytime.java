@@ -1,6 +1,7 @@
 package models;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.joda.time.DateTime;
 import play.data.validation.Required;
 import play.db.jpa.GenericModel;
 
@@ -29,22 +30,28 @@ public class RoomManagerDaytime extends GenericModel {
     public RoomTypeDaytime roomtypedaytime;
 
     @Required
-    public String date;
+    public DateTime date;//日期
 
     @Required
     public String roomtype;//房型
 
     @Required
-    public String starttime;//开售时间
+    public DateTime starttime;//开售时间
 
     @Required
-    public String endtime;//停售时间
+    public DateTime endtime;//停售时间
 
     @Required
-    public String roomnumber;//房间余量
+    public int roomnumber;//房间余量
 
     @Required
-    public String roomprice;//售价
+    public int preroom;//预留房间数
+
+    @Required
+    public int actualin;//实际入住
+
+    @Required
+    public double roomprice;//售价
 
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){

@@ -33,7 +33,7 @@ public class Hotel extends GenericModel {
     public String  hotelAddress;//酒店地址
 
     @Required
-    public String  hotelPrice;//酒店最低售价
+    public double  hotelPrice;//酒店最低售价
 
     @Required
     public double  hotelReturn;//酒店返还额

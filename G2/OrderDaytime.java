@@ -39,13 +39,13 @@ public class OrderDaytime extends GenericModel{
     public String roomtype;
 
     @Required
-    public String roomnumber;//房间余量
+    public int roomnumber;//房间余量
 
     @Required
-    public String day;//所住天数
+    public int day;//所住天数
 
     @Required
-    public String totalprice;//总价
+    public double totalprice;//总价
 
     @Required
     public String state;//状态

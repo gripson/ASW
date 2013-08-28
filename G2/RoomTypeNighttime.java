@@ -43,16 +43,16 @@ public class RoomTypeNighttime extends GenericModel{
     public String network;
 
     @Required
-    public String loveprice;
+    public double loveprice;
 
     @Required
-    public String publicprice;
+    public double publicprice;
 
     @Required
-    public String commissionrate;
+    public double commissionrate;
 
     @Required
-    public String fixedcommission;
+    public double fixedcommission;
 
     @Required
     public String state;
@@ -61,10 +61,10 @@ public class RoomTypeNighttime extends GenericModel{
     public String area;
 
     @Required
-    public String floor;
+    public int floor;
 
     @Required
-    public String bednumber;
+    public int bednumber;
 
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){

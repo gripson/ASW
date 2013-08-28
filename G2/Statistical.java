@@ -47,10 +47,10 @@ public class Statistical extends GenericModel {
     public String state;
 
     @Required
-    public String fixedcommission;
+    public double fixedcommission;
 
     @Required
-    public String commissionrate;
+    public double commissionrate;
 
     @Required
     public String scheduledtime;//预定时间

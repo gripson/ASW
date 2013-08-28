@@ -42,19 +42,19 @@ public class RoomTypeDaytime extends GenericModel {
     public String network;
 
     @Required
-    public String loveprice;//房型的默认售价
+    public double loveprice;//房型的默认售价
 
     @Required
     public int preroom;//每日预留房间数量
 
     @Required
-    public String publicprice;//门市价 目前没有用处
+    public double publicprice;//门市价 目前没有用处
 
     @Required
-    public String commissionrate;//佣金比率
+    public double commissionrate;//佣金比率
 
     @Required
-    public String fixedcommission;//固定佣金
+    public double fixedcommission;//固定佣金
 
     @Required
     public String state;//状态
@@ -63,10 +63,10 @@ public class RoomTypeDaytime extends GenericModel {
     public String area;//面积
 
     @Required
-    public String floor;//楼层
+    public int floor;//楼层
 
     @Required
-    public String bednumber;//床个数
+    public int bednumber;//床个数
 
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){
@@ -85,8 +85,8 @@ public class RoomTypeDaytime extends GenericModel {
         html.append("<td style=\"display:none;\">"+this.floor+"</td>");
         html.append("<td style=\"display:none;\">"+this.bednumber+"</td>");
 
-        html.append("<td><a data-toggle=\"modal\" href=\"#stack1\" class=\"edit\" href=\"javascript:;\">修改</a></td>");
-        html.append("<td><a id="+this.roomtype+" class=\"delete\" href=\"javascript:;\">删除</a></td>");
+        html.append("<td><a id="+this.roomtype+" data-toggle=\"modal\" href=\"#stack1\" class=\"edit\" >修改</a></td>");
+        html.append("<td><a id="+this.roomtype+" class=\"delete\" >删除</a></td>");
         html.append("</tr>");
     }
 

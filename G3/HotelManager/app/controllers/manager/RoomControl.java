@@ -2,10 +2,7 @@ package controllers.manager;
 
 import com.google.gson.Gson;
 import models.*;
-import org.joda.time.DateTime;
 import play.mvc.Controller;
-
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -175,36 +172,11 @@ public class RoomControl extends Controller {
         String id = session.get("hotelid");
         List<RoomTypeDaytime> roomtdtime = RoomTypeDaytime.find("byHotel_id",id).fetch();
         String date = RoomTypeDaytime.tohtml(roomtdtime);
-        //依据房型状态生成7天余房
-        createrminfo(roomtdtime);
         //返回Html
         return date;
     }
 
-    public static void createrminfo(List<RoomTypeDaytime> roomtdtime){
-        List<RoomManagerDaytime> roommdts = null;
 
-        for(int i=0;i<roomtdtime.size();i++){
-            if(roomtdtime.get(i).state.equals("正在审核")){
-                roommdts = RoomManagerDaytime.find("byRoomtypedaytime_id",roomtdtime.get(i).id).fetch();
-                if(!roommdts.isEmpty())
-                    RoomManagerDaytime.delete("byRoomtypedaytime_id",roomtdtime.get(i).id);
-            }else if (roomtdtime.get(i).state.equals("审核通过")){
-                roommdts = RoomManagerDaytime.find("byRoomtypedaytime_id",roomtdtime.get(i).id).fetch();
-                if(roommdts.isEmpty()){
-                    for (int time =1;time<=7;time++){
-                        RoomManagerDaytime roommdt = new RoomManagerDaytime();
-                        roommdt.roomtypedaytime = roomtdtime.get(i);
-                        roommdt.preroom = roomtdtime.get(i).preroom;
-                        roommdt.roomnumber = roomtdtime.get(i).preroom;
-                        roommdt.roomprice = roomtdtime.get(i).loveprice;
-                        roommdt.roomtype = roomtdtime.get(i).roomtype;
-                        roommdt.create();
-                    }
-                }
-            }
-        }
-    }
 //夜间房
     public static String selectnight(){
         String id = session.get("hotelid");

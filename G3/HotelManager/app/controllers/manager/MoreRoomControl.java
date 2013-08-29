@@ -5,6 +5,7 @@ import models.RoomTypeDaytime;
 import play.mvc.Controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -73,6 +74,7 @@ public class MoreRoomControl extends Controller {
         //找到当前酒店的所有日间房型
         List<RoomTypeDaytime> roomtypedaytimes = RoomTypeDaytime.find("byHotel_id",id).fetch();
         List<RoomManagerDaytime> roommanagerdaytimes = new ArrayList<RoomManagerDaytime>();
+        createrminfo(roomtypedaytimes);
         //遍历所有日间房型
         for (Iterator i = roomtypedaytimes.iterator(); i.hasNext();){
             //获取日间房型对象
@@ -87,6 +89,32 @@ public class MoreRoomControl extends Controller {
         String date = RoomManagerDaytime.tohtml(roommanagerdaytimes);
         //返回Html
         return date;
+    }
+
+    public static void createrminfo(List<RoomTypeDaytime> roomtdtime){
+        List<RoomManagerDaytime> roommdts = null;
+        Date date = new Date();
+        for(int i=0;i<roomtdtime.size();i++){
+            if(roomtdtime.get(i).state.equals("正在审核")){
+                roommdts = RoomManagerDaytime.find("byRoomtypedaytime_id",roomtdtime.get(i).id).fetch();
+                if(!roommdts.isEmpty())
+                    RoomManagerDaytime.delete("byRoomtypedaytime_id",roomtdtime.get(i).id);
+            }else if (roomtdtime.get(i).state.equals("审核通过")){
+                roommdts = RoomManagerDaytime.find("byRoomtypedaytime_id",roomtdtime.get(i).id).fetch();
+                if(roommdts.isEmpty()){
+                    for (int time =1;time<=7;time++){
+                        RoomManagerDaytime roommdt = new RoomManagerDaytime();
+                        roommdt.roomtypedaytime = roomtdtime.get(i);
+                        roommdt.preroom = roomtdtime.get(i).preroom;
+                        roommdt.roomnumber = roomtdtime.get(i).preroom;
+                        roommdt.roomprice = roomtdtime.get(i).loveprice;
+                        roommdt.roomtype = roomtdtime.get(i).roomtype;
+                        roommdt.date = date;
+                        roommdt.create();
+                    }
+                }
+            }
+        }
     }
 //
 //    public static String selectdtt(){

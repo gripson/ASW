@@ -1,0 +1,58 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       manager.Application.index
+GET     /login                                  manager.Application.login
+GET     /personal                               manager.Application.personal
+GET     /statistical                            manager.Application.statistical
+GET     /usermanager                            manager.Application.usermanager
+GET     /ordermanager                           manager.Application.ordermanager
+GET     /nightordermanager                      manager.Application.nightordermanager
+GET     /remainroom                             manager.Application.remainroom
+GET     /logs                                   manager.Application.logs
+GET     /error                                  manager.Application.error_404
+GET     /update                                 manager.Application.updateinformation
+GET     /orderedit                              manager.Application.orderedit
+GET     /hotel                                  manager.Application.hotel
+GET     /roommanager                            manager.Application.roommanager
+GET     /nightroommanager                       manager.Application.nightroommanager
+GET     /daytimeroom                            manager.Application.daytimeroom
+GET     /nighttimeroom                          manager.Application.nighttimeroom
+POST    /ajax                                   manager.Application.ajax
+POST    /user/save                              manager.Application.saveUser
+POST    /user/login                             manager.Application.logincheck
+POST    /user/select                            manager.AdminControl.select
+POST    /user/delete                            manager.AdminControl.delete
+POST    /hotel/save                             manager.HotelControl.save
+POST    /add                                    manager.Application.add
+POST    /hotel/select                           manager.HotelControl.select
+GET     /hotel/select                           manager.HotelControl.select
+POST    /room/save                              manager.MoreRoomControl.savedtf
+POST    /room/savett                            manager.MoreRoomControl.savedtt
+POST    /room/selectdtf                         manager.MoreRoomControl.selectdtf
+GET     /room/selectdtf                         manager.MoreRoomControl.selectdtf
+POST    /room/selectdtt                         manager.MoreRoomControl.selectdtt
+GET     /room/selectdtt                         manager.MoreRoomControl.selectdtt
+POST    /room/deletedtf                         manager.MoreRoomControl.deletedtf
+POST    /room/deletedtt                         manager.MoreRoomControl.deletedtt
+
+POST    /roomnight/save                         manager.MoreRoomNightControl.savedtf
+POST    /roomnight/savett                       manager.MoreRoomNightControl.savedtt
+POST    /roomnight/selectdtf                    manager.MoreRoomNightControl.selectdtf
+GET     /roomnight/selectdtf                    manager.MoreRoomNightControl.selectdtf
+POST    /roomnight/selectdtt                    manager.MoreRoomNightControl.selectdtt
+GET     /roomnight/selectdtt                    manager.MoreRoomNightControl.selectdtt
+POST    /roomnight/deletedtf                    manager.MoreRoomNightControl.deletedtf
+POST    /roomnight/deletedtt                    manager.MoreRoomNightControl.deletedtt
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+

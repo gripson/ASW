@@ -21,9 +21,11 @@ GET     /nightroommanager                       manager.Application.nightroomman
 GET     /daytimeroom                            manager.Application.daytimeroom
 GET     /nighttimeroom                          manager.Application.nighttimeroom
 POST    /ajax                                   manager.Application.ajax
+
 POST    /user/save                              manager.Application.saveUser
 POST    /user/login                             manager.Application.logincheck
 POST    /user/select                            manager.AdminControl.select
+POST    /admin/selectinfo                       manager.AdminControl.selectinfo
 POST    /user/delete                            manager.AdminControl.delete
 POST    /hotel/save                             manager.HotelControl.save
 POST    /add                                    manager.Application.add

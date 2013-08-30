@@ -1,6 +1,8 @@
 package controllers.manager;
 
+import com.google.gson.Gson;
 import models.Admin;
+import models.Hotel;
 import play.data.validation.Valid;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -21,7 +23,7 @@ public class AdminControl extends Controller {
         String username = session.get("admin");
         Admin admin = Admin.find("byUsername", username).first();
 
-        if(password != null){
+        if(!password.equals("")){
             admin.password=password;
         }
         admin.email=email;
@@ -41,6 +43,14 @@ public class AdminControl extends Controller {
         return msg;
     }
 
+    public static void selectinfo(){
+        String username = session.get("admin");
+        Admin admin = Admin.find("byUsername", username).first();
+
+        renderJSON(new Gson().toJson(admin).toString());
+    }
+
+    //酒店后台用户管理模块——系统管理员所需的方法
     public static String select(){
         List<Admin> admins = Admin.findAll();
         String date = Admin.tohtml(admins);
@@ -48,7 +58,6 @@ public class AdminControl extends Controller {
         return date;
     }
 
-    //酒店后台用户管理模块——系统管理员所需的方法
     public static String delete(String userName){
         Admin admin= (Admin) Admin.find("byUsername",userName).first();
 

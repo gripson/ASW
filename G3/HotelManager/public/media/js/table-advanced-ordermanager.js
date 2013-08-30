@@ -9,10 +9,11 @@ var TableAdvanced = function () {
             var sOut = '<table>';
            // sOut += '<tr><td>预定时间:</td><td>'+aData[2]+'</td></tr>';
 		    sOut += '<tr><td>预定时间:</td><td>'+aData[8]+'</td></tr>';
-			sOut += '<tr><td>离店时间:</td><td>'+aData[9]+'</td></tr>';
-            sOut += '<tr><td>房间保留时间:</td><td>'+aData[10]+'</td></tr>';
-            sOut += '<tr><td>联系方式:</td><td>'+aData[11]+'</td></tr>';
-            sOut += '<tr><td>备注:</td><td>'+aData[12]+'</td></tr>';
+			sOut += '<tr><td>入住时间:</td><td>'+aData[9]+'</td></tr>';
+			sOut += '<tr><td>离店时间:</td><td>'+aData[10]+'</td></tr>';
+            sOut += '<tr><td>房间保留时间:</td><td>'+aData[11]+'</td></tr>';
+            sOut += '<tr><td>联系方式:</td><td>'+aData[12]+'</td></tr>';
+            sOut += '<tr><td>备注:</td><td>'+aData[13]+'</td></tr>';
             sOut += '</table>';
              
             return sOut;

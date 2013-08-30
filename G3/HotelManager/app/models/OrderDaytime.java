@@ -74,11 +74,11 @@ public class OrderDaytime extends GenericModel{
         html.append("<td>"+this.id+"</td>");
         html.append("<td>"+this.fullname+"</td>");
         html.append("<td>"+this.roomtype+"</td>");
-        html.append("<td>"+this.roomnumber+"</td>");
         html.append("<td >"+this.day+"</td>");
         html.append("<td >"+this.totalprice+"</td>");
         html.append("<td >"+this.state+"</td>");
         html.append("<td style=\"display:none;\">"+this.scheduledtime+"</td>");
+        html.append("<td style=\"display:none;\">"+this.checkintime+"</td>");
         html.append("<td style=\"display:none;\">"+this.departuretime+"</td>");
         html.append("<td style=\"display:none;\">"+this.retentiontime+"</td>");
         html.append("<td style=\"display:none;\">"+this.contact+"</td>");

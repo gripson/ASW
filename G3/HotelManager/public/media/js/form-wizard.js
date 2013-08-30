@@ -64,11 +64,11 @@ var FormWizard = function () {
                     },						
                     password: {
                         minlength: 5,
-                        required: true
+                        required: false
                     },
                     rpassword: {
                         minlength: 5,
-                        required: true,
+                        required: false,
                         equalTo: "#submit_form_password"
                     },
                     //profile

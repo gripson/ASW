@@ -52,6 +52,9 @@ GET     /roomnight/selectdtt                    manager.MoreRoomNightControl.sel
 POST    /roomnight/deletedtf                    manager.MoreRoomNightControl.deletedtf
 POST    /roomnight/deletedtt                    manager.MoreRoomNightControl.deletedtt
 
+POST    /order/savein                           manager.OrderControl.savein
+POST    /order/saveout                          manager.OrderControl.saveout
+
 
 
 # Ignore favicon requests

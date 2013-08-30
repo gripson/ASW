@@ -34,8 +34,8 @@ public class OrderDaytime extends GenericModel{
     @Required
     public String roomtype;
 
-    @Required
-    public int roomnumber;//房间余量
+//    @Required
+//    public int roomnumber;//房间余量
 
     @Required
     public int day;//所住天数

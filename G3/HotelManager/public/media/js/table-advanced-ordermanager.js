@@ -61,36 +61,62 @@ var TableAdvanced = function () {
 		$('#sample_1 a.in').live('click', function (e) {
                 e.preventDefault();
 
-                if (confirm("确定要删除吗 ?") == false) {
+                if (confirm("确定已入住了吗 ?") == false) {
                     return;
                 }
 				
 				var nRow = $(this).parents('tr')[0];
                 var aData = oTable.fnGetData(nRow);
 				
-                alert(aData[0]);
+                //alert(this.id);
                 $.ajax({
                     type:"post",
-                    url:"/room/deletedtf",//传入action来处理
-                    data: "roomtype="+aData[0]+"&ttt="+Math.random(),
+                    url:"/order/savein",//传入action来处理
+                    data: "orderdtid="+this.id+"&ttt="+Math.random(),
                     dataType: "text",
                     error:function(){
                         alert("服务器繁忙，请稍候在试！");
                     },
                     success:function(msg){
-
-                        if(msg != null){
-
-                            alert(msg);
+                        if(msg != null){			    
+                            alert(msg);			
+                            location.reload();							
                         }
 
                     }
                 })
                 oTable.fnDeleteRow(nRow);
-
-                //alert("Deleted! Do not forget to do some ajax to sync with backend :)");
         });
 			
+	    $('#sample_1 a.out').live('click', function (e) {
+                e.preventDefault();
+
+                if (confirm("确定未入住吗 ?") == false) {
+                    return;
+                }
+				
+				var nRow = $(this).parents('tr')[0];
+                var aData = oTable.fnGetData(nRow);
+				
+                //alert(this.id);
+                $.ajax({
+                    type:"post",
+                    url:"/order/savein",//传入action来处理
+                    data: "orderdtid="+this.id+"&ttt="+Math.random(),
+                    dataType: "text",
+                    error:function(){
+                        alert("服务器繁忙，请稍候在试！");
+                    },
+                    success:function(msg){
+                        if(msg != null){			    
+                            alert(msg);			
+                            location.reload();							
+                        }
+
+                    }
+                })
+                oTable.fnDeleteRow(nRow);
+        });
         $('#sample_1').on('click', ' tbody td .row-details', function () {
             var nTr = $(this).parents('tr')[0];
             if ( oTable.fnIsOpen(nTr) )

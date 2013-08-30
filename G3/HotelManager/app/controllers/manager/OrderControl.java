@@ -2,6 +2,7 @@ package controllers.manager;
 
 import models.OrderDaytime;
 import models.OrderNighttime;
+import models.Statistical;
 import play.mvc.Controller;
 
 import java.util.List;
@@ -20,6 +21,42 @@ public class OrderControl extends Controller {
         String date = OrderDaytime.tohtml(orderdt);
         //返回Html
         return date;
+    }
+
+    public static String savein(String orderdtid){
+        OrderDaytime orderdt = OrderDaytime.find("byId",orderdtid).first();
+        orderdt.state = "已入住";
+        orderdt.save();
+        Statistical statistical = new Statistical();
+        statistical.checkintime = orderdt.checkintime;
+        statistical.contact = orderdt.contact;
+        statistical.orderdt_id = orderdt.id;
+        statistical.hotel = orderdt.hotel;
+        statistical.fullname = orderdt.fullname;
+        statistical.roomtype = orderdt.roomtype;
+        statistical.day = orderdt.day;
+        statistical.totalprice = orderdt.totalprice;
+        statistical.checkintime = orderdt.checkintime;
+        statistical.scheduledtime = orderdt.scheduledtime;
+        statistical.departuretime = orderdt.departuretime;
+        statistical.retentiontime = orderdt.retentiontime;
+        statistical.contact = orderdt.contact;
+        statistical.note = orderdt.note;
+        statistical.state = orderdt.state;
+        statistical.save();
+        orderdt.delete();
+        return "成功修改！";
+    }
+
+    public static String saveout(String orderdtid){
+        OrderDaytime orderdt = OrderDaytime.find("byId",orderdtid).first();
+        orderdt.state = "未入住";
+        orderdt.save();
+        Statistical statistical = new Statistical();
+
+        statistical.save();
+        //orderdt.delete();
+        return "成功修改！";
     }
 
     public static String selectnight(){

@@ -33,8 +33,8 @@ public class OrderNighttime extends GenericModel{
     @Required
     public String roomtype;
 
-    @Required
-    public String roomnumber;
+//    @Required
+//    public String roomnumber;
 
     @Required
     public String day;
@@ -70,8 +70,6 @@ public class OrderNighttime extends GenericModel{
         html.append("<td>"+this.id+"</td>");
         html.append("<td>"+this.fullname+"</td>");
         html.append("<td>"+this.roomtype+"</td>");
-        html.append("<td>"+this.roomnumber+"</td>");
-//      html.append("<td >"+this.day+"</td>");
         html.append("<td >"+this.totalprice+"</td>");
         html.append("<td >"+this.state+"</td>");
         html.append("<td style=\"display:none;\">"+this.scheduledtime+"</td>");

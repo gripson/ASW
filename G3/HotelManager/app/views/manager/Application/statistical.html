@@ -34,8 +34,8 @@
             cache: false,
             dateType: 'html',
             success: function (data) {
-                $("#tablestatistical").html(data);
-
+                //alert(data);
+                $("#statisticalnody").html(data);
             },
             error: function (xhr) { alert("加载失败！"); }
         });
@@ -268,8 +268,6 @@
                                 <th>预定房型</th>
                                 <th>入住天数</th>
                                 <th>爱上售价总价额</th>
-                                <th>返佣额</th>
-                                <th>返佣比例</th>
                                 <th>状态</th>
                                 <th style="display:none;">预定时间</th>
                                 <th style="display:none;">入住时间</th>
@@ -279,18 +277,7 @@
                                 <th style="display:none;">备注</th>
                             </tr>
                             </thead>
-                            <tbody id="tablestatistical">
-                            <tr>
-                                <td>0121121</td>
-                                <td>Gripson
-                                </td>
-                                <td >豪华双人床</td>
-                                <td >1</td>
-                                <td >480</td>
-                                <td >230</td>
-                                <td>20%</td>
-                                <td>已入住</td>
-                            </tr>
+                            <tbody id="statisticalnody">
                             </tbody>
                         </table>
                     </div>

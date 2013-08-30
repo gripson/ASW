@@ -35,14 +35,14 @@ public class Statistical extends GenericModel {
     @Required
     public String roomtype;
 
-    @Required
-    public String roomnumber;
+//    @Required
+//    public String roomnumber;
 
     @Required
-    public String day;
+    public int day;
 
     @Required
-    public String totalprice;
+    public double totalprice;
 
     @Required
     public String state;
@@ -63,7 +63,7 @@ public class Statistical extends GenericModel {
     public Date departuretime;//离店时间
 
     @Required
-    public Date retentiontime;//房间保留时间
+    public String retentiontime;//房间保留时间
 
     @Required
     public String contact;
@@ -71,21 +71,26 @@ public class Statistical extends GenericModel {
     @Required
     public String note;
 
+    @Required
+    public String orderdt_id;
+
+    @Required
+    public String ordernt_id;
+
     public void toTd(StringBuffer html){
         html.append("<tr class=\"odd\">");
         html.append("<td class=\"sorting_1\">"+this.id+"</td>");
         html.append("<td class=\"\">"+this.fullname+"</td>");
         html.append("<td class=\"\">"+this.roomtype+"</td>");
+        html.append("<td class=\"\">"+this.day+"</td>");
         html.append("<td class=\"\">"+this.totalprice+"</td>");
-        html.append("<td class=\"\">"+this.fixedcommission+"</td>");
-        html.append("<td class=\"\">"+this.commissionrate+"</td>");
-
-        html.append("<td class=\"\">"+this.scheduledtime+"</td>");
-        html.append("<td class=\"\">"+this.checkintime+"</td>");
-        html.append("<td class=\"\">"+this.departuretime+"</td>");
-        html.append("<td class=\"\">"+this.retentiontime+"</td>");
-        html.append("<td class=\"\">"+this.contact+"</td>");
         html.append("<td class=\"\">"+this.state+"</td>");
+        html.append("<td class=\"\" style=\"display:none;\">"+this.scheduledtime+"</td>");
+        html.append("<td class=\"\" style=\"display:none;\">"+this.checkintime+"</td>");
+        html.append("<td class=\"\" style=\"display:none;\">"+this.departuretime+"</td>");
+        html.append("<td class=\"\" style=\"display:none;\">"+this.retentiontime+"</td>");
+        html.append("<td class=\"\" style=\"display:none;\">"+this.contact+"</td>");
+        html.append("<td class=\"\" style=\"display:none;\">"+this.note+"</td>");
         html.append("</tr>");
     }
 

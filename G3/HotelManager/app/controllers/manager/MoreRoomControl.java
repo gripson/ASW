@@ -97,8 +97,10 @@ public class MoreRoomControl extends Controller {
         for(int i=0;i<roomtdtime.size();i++){
             if(roomtdtime.get(i).state.equals("正在审核")){
                 roommdts = RoomManagerDaytime.find("byRoomtypedaytime_id",roomtdtime.get(i).id).fetch();
-                if(!roommdts.isEmpty())
-                    RoomManagerDaytime.delete("byRoomtypedaytime_id",roomtdtime.get(i).id);
+                if(!roommdts.isEmpty()){
+                    for (int j =0;j<roommdts.size();j++)
+                         roommdts.get(j).delete();
+                }
             }else if (roomtdtime.get(i).state.equals("审核通过")){
                 roommdts = RoomManagerDaytime.find("byRoomtypedaytime_id",roomtdtime.get(i).id).fetch();
                 if(roommdts.isEmpty()){

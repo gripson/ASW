@@ -8,12 +8,12 @@ var TableAdvanced = function () {
             var aData = oTable.fnGetData( nTr );
             var sOut = '<table>';
            // sOut += '<tr><td>预定时间:</td><td>'+aData[2]+'</td></tr>';
-		    sOut += '<tr><td>预定时间:</td><td>'+aData[8]+'</td></tr>';
-			sOut += '<tr><td>入住时间:</td><td>'+aData[9]+'</td></tr>';
-			sOut += '<tr><td>离店时间:</td><td>'+aData[10]+'</td></tr>';
-            sOut += '<tr><td>房间保留时间:</td><td>'+aData[11]+'</td></tr>';
-            sOut += '<tr><td>联系方式:</td><td>'+aData[12]+'</td></tr>';
-            sOut += '<tr><td>备注:</td><td>'+aData[13]+'</td></tr>';
+		    sOut += '<tr><td>预定时间:</td><td>'+aData[7]+'</td></tr>';
+			sOut += '<tr><td>入住时间:</td><td>'+aData[8]+'</td></tr>';
+			sOut += '<tr><td>离店时间:</td><td>'+aData[9]+'</td></tr>';
+            sOut += '<tr><td>房间保留时间:</td><td>'+aData[10]+'</td></tr>';
+            sOut += '<tr><td>联系方式:</td><td>'+aData[11]+'</td></tr>';
+            sOut += '<tr><td>备注:</td><td>'+aData[12]+'</td></tr>';
             sOut += '</table>';
              
             return sOut;
@@ -58,6 +58,39 @@ var TableAdvanced = function () {
          * Note that the indicator for showing which row is open is not controlled by DataTables,
          * rather it is done here
          */
+		$('#sample_1 a.in').live('click', function (e) {
+                e.preventDefault();
+
+                if (confirm("确定要删除吗 ?") == false) {
+                    return;
+                }
+				
+				var nRow = $(this).parents('tr')[0];
+                var aData = oTable.fnGetData(nRow);
+				
+                alert(aData[0]);
+                $.ajax({
+                    type:"post",
+                    url:"/room/deletedtf",//传入action来处理
+                    data: "roomtype="+aData[0]+"&ttt="+Math.random(),
+                    dataType: "text",
+                    error:function(){
+                        alert("服务器繁忙，请稍候在试！");
+                    },
+                    success:function(msg){
+
+                        if(msg != null){
+
+                            alert(msg);
+                        }
+
+                    }
+                })
+                oTable.fnDeleteRow(nRow);
+
+                //alert("Deleted! Do not forget to do some ajax to sync with backend :)");
+        });
+			
         $('#sample_1').on('click', ' tbody td .row-details', function () {
             var nTr = $(this).parents('tr')[0];
             if ( oTable.fnIsOpen(nTr) )

@@ -5,6 +5,7 @@ import play.data.validation.Required;
 import play.db.jpa.GenericModel;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -53,13 +54,16 @@ public class Statistical extends GenericModel {
     public double commissionrate;
 
     @Required
-    public String scheduledtime;//预定时间
+    public Date scheduledtime;//预定时间
 
     @Required
-    public String departuretime;//离店时间
+    public Date checkintime;//入住时间
 
     @Required
-    public String retentiontime;//房间保留时间
+    public Date departuretime;//离店时间
+
+    @Required
+    public Date retentiontime;//房间保留时间
 
     @Required
     public String contact;
@@ -71,21 +75,25 @@ public class Statistical extends GenericModel {
         html.append("<tr class=\"odd\">");
         html.append("<td class=\"sorting_1\">"+this.id+"</td>");
         html.append("<td class=\"\">"+this.fullname+"</td>");
-        html.append("<td class=\"\">"+this.hotel+"</td>");
-        html.append("<td class=\"center \">"+this.roomnumber+"</td>");
-        html.append("<td class=\"\">"+this.day+"</td>");
-        html.append("<td class=\"\">"+this.day+"</td>");
-        html.append("<td class=\"\">"+this.day+"</td>");
-        html.append("<td><a class=\"edit\" href=\"javascript:;\">修改</a></td>");
-        html.append("<td><a class=\"delete\" href=\"javascript:;\">删除</a></td>");
+        html.append("<td class=\"\">"+this.roomtype+"</td>");
+        html.append("<td class=\"\">"+this.totalprice+"</td>");
+        html.append("<td class=\"\">"+this.fixedcommission+"</td>");
+        html.append("<td class=\"\">"+this.commissionrate+"</td>");
+
+        html.append("<td class=\"\">"+this.scheduledtime+"</td>");
+        html.append("<td class=\"\">"+this.checkintime+"</td>");
+        html.append("<td class=\"\">"+this.departuretime+"</td>");
+        html.append("<td class=\"\">"+this.retentiontime+"</td>");
+        html.append("<td class=\"\">"+this.contact+"</td>");
+        html.append("<td class=\"\">"+this.state+"</td>");
         html.append("</tr>");
     }
 
-    public static String tohtml(List<Admin> admins){
+    public static String tohtml(List<Statistical> statisticals){
         StringBuffer html=new StringBuffer();
 
-        for(int i=0;i<admins.size();i++)
-            admins.get(i).toTd(html);
+        for(int i=0;i<statisticals.size();i++)
+            statisticals.get(i).toTd(html);
 
         return html.toString();
 

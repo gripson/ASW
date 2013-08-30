@@ -29,6 +29,7 @@ POST    /hotel/save                             manager.HotelControl.save
 POST    /add                                    manager.Application.add
 POST    /hotel/select                           manager.HotelControl.select
 GET     /hotel/select                           manager.HotelControl.select
+
 POST    /room/save                              manager.MoreRoomControl.savedtf
 POST    /room/savett                            manager.MoreRoomControl.savedtt
 POST    /room/selectdtf                         manager.MoreRoomControl.selectdtf
@@ -37,6 +38,8 @@ POST    /room/selectdtt                         manager.MoreRoomControl.selectdt
 GET     /room/selectdtt                         manager.MoreRoomControl.selectdtt
 POST    /room/deletedtf                         manager.MoreRoomControl.deletedtf
 POST    /room/deletedtt                         manager.MoreRoomControl.deletedtt
+POST    /room/startsell                         manager.MoreRoomControl.startsell
+POST    /room/stopsell                          manager.MoreRoomControl.stopsell
 
 POST    /roomnight/save                         manager.MoreRoomNightControl.savedtf
 POST    /roomnight/savett                       manager.MoreRoomNightControl.savedtt
@@ -46,6 +49,8 @@ POST    /roomnight/selectdtt                    manager.MoreRoomNightControl.sel
 GET     /roomnight/selectdtt                    manager.MoreRoomNightControl.selectdtt
 POST    /roomnight/deletedtf                    manager.MoreRoomNightControl.deletedtf
 POST    /roomnight/deletedtt                    manager.MoreRoomNightControl.deletedtt
+
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

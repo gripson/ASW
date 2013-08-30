@@ -110,11 +110,26 @@ public class MoreRoomControl extends Controller {
                         roommdt.roomprice = roomtdtime.get(i).loveprice;
                         roommdt.roomtype = roomtdtime.get(i).roomtype;
                         roommdt.date = date;
+                        roommdt.state = "开售";
                         roommdt.create();
                     }
                 }
             }
         }
+    }
+
+    public static String stopsell(String roomid){
+        RoomManagerDaytime roommdt = RoomManagerDaytime.find("byId",roomid).first();
+        roommdt.state = "停售";
+        roommdt.save();
+        return roommdt.state+"成功停售！";
+    }
+
+    public static String startsell(String roomid){
+        RoomManagerDaytime roommdt = RoomManagerDaytime.find("byId",roomid).first();
+        roommdt.state = "开售";
+        roommdt.save();
+        return "成功开售！";
     }
 //
 //    public static String selectdtt(){

@@ -29,10 +29,6 @@ public class OrderDaytime extends GenericModel{
     public Hotel hotel;
 
     @Required
-    @ManyToOne
-    public RoomManagerDaytime roomManagerDaytime;
-
-    @Required
     public String fullname;//顾客姓名
 
     @Required
@@ -67,6 +63,10 @@ public class OrderDaytime extends GenericModel{
 
     @Required
     public String note;//备注
+
+    @Required
+    @ManyToOne
+    public User user;
 
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){

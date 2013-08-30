@@ -60,6 +60,10 @@ public class OrderNighttime extends GenericModel{
     @Required
     public String note;
 
+    @Required
+    @ManyToOne
+    public User user;
+
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){
         html.append("<tr class=\"odd\">");

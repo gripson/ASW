@@ -55,34 +55,17 @@
 
         $.ajax({
             type:"post",
-            url: "roomnight/selectdtf", //servlet的url，注意要组合成table的html然后返回就行了
+            url: "roomnight/selectnt", //servlet的url，注意要组合成table的html然后返回就行了
             cache: false,
             dateType: 'html',
             success: function (data) {
-                $("#sunday").html(data);
+                $("#nightbody").html(data);
                 //alert(data);
             },
             error: function (xhr) { alert("加载失败！"); }
         });
 
     </script>
-    <script>
-
-        $.ajax({
-            type:"post",
-            url: "roomnight/selectdtt", //servlet的url，注意要组合成table的html然后返回就行了
-            cache: false,
-            dateType: 'html',
-            success: function (data) {
-                $("#friday").html(data);
-                //alert(data);
-            },
-            error: function (xhr) { alert("加载失败！"); }
-        });
-
-    </script>
-
-
 </head>
 
 <!-- END HEAD -->
@@ -407,7 +390,7 @@
 
         <div class="portlet-title">
 
-            <div class="caption"><i class="icon-edit"></i>周日至周四-夜间房信息</div>
+            <div class="caption"><i class="icon-edit"></i>夜间房信息</div>
 
             <div class="tools">
 
@@ -423,11 +406,11 @@
 
                 <div class="btn-group">
 
-                    <button id="sample_editable_1_new" class="btn green">
+                    *{<button id="sample_editable_1_new" class="btn green">}*
 
-                        添加 <i class="icon-plus"></i>
+                        *{添加 <i class="icon-plus"></i>}*
 
-                    </button>
+                    *{</button>}*
 
                 </div>
 
@@ -459,184 +442,7 @@
 
                     <th>房型</th>
 
-                    <th>开售时间</th>
-
-                    <th>停售时间</th>
-
-                    <th>爱尚售价</th>
-
-                    <th>修改</th>
-
-                    <th>删除</th>
-
-                </tr>
-
-                </thead>
-
-                <tbody id="sunday">
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-        </div>
-
-        <!-- END EXAMPLE TABLE PORTLET-->
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-        <div class="portlet box blue">
-
-        <div class="portlet-title">
-
-            <div class="caption"><i class="icon-edit"></i>周五志周六-夜间房信息</div>
-
-            <div class="tools">
-
-                <a href="javascript:;" class="collapse"></a>
-
-            </div>
-
-        </div>
-
-        <div class="portlet-body">
-
-            <div class="clearfix">
-
-                <div class="btn-group">
-
-                    <button id="sample_editable_2_new" class="btn blue">
-
-                        添加 <i class="icon-plus"></i>
-
-                    </button>
-
-                </div>
-
-                <div class="btn-group pull-right">
-
-                    <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i>
-
-                    </button>
-
-                    <ul class="dropdown-menu pull-right">
-
-                        <li><a href="#">Print</a></li>
-
-                        <li><a href="#">Save as PDF</a></li>
-
-                        <li><a href="#">Export to Excel</a></li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-            <table class="table table-striped table-hover table-bordered" id="sample_editable_2">
-
-                <thead>
-
-                <tr>
-
-                    <th>房型</th>
+                    <th>日期</th>
 
                     <th>开售时间</th>
 
@@ -644,111 +450,15 @@
 
                     <th>爱尚售价</th>
 
-                    <th>修改</th>
+                    <th>编辑</th>
 
-                    <th>删除</th>
+                    <th>停售</th>
 
                 </tr>
 
                 </thead>
 
-                <tbody id="friday">
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
-
-                <tr class="">
-
-                    <td>标准件</td>
-
-                    <td>07/01/2013 18:30</td>
-
-                    <td>07/01/2013 21:30</td>
-
-                    <td>203</td>
-
-                    <td><a class="edit" href="javascript:;">修改</a></td>
-
-                    <td><a class="delete" href="javascript:;">删除</a></td>
-
-                </tr>
+                <tbody id="nightbody">
 
                 </tbody>
 

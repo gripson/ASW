@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class AdminControl extends Controller {
 
-    public static String update(String financialphone,String financialname,String fax,String frontcontact,String useremail,String telephone,String phone, String password,String email,String permissions,String fullname){
+    public static String update(String financialphone,String financialname,String fax,String frontcontact,String useremail,String telephone,String phone, String password,String email,String position,String fullname){
 
         String username = session.get("admin");
         Admin admin = Admin.find("byUsername", username).first();
@@ -27,7 +27,7 @@ public class AdminControl extends Controller {
             admin.password=password;
         }
         admin.email=email;
-        admin.permissions=permissions;
+        admin.position=position;
         admin.fullname=fullname;
         admin.phone = phone;
         admin.telephone = telephone;

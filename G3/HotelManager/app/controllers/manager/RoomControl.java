@@ -113,6 +113,7 @@ public class RoomControl extends Controller {
             roomtyped.bednumber = addbednumber;
             roomtyped.publicprice = addprice;
             roomtyped.fixedcommission = fixedcommission;
+            roomtyped.commissionrate = 0;
             roomtyped.state = "正在审核";
             roomtyped.create();
         }else{
@@ -126,6 +127,8 @@ public class RoomControl extends Controller {
             oldroomtyped.bednumber = addbednumber;
             oldroomtyped.publicprice = addprice;
             oldroomtyped.fixedcommission = fixedcommission;
+            oldroomtyped.commissionrate = 0;
+            oldroomtyped.state = "正在审核";
             oldroomtyped.save();
         }
         String msg ="Success!";
@@ -149,6 +152,7 @@ public class RoomControl extends Controller {
             roomtypen.bednumber = addbednumber2;
             roomtypen.publicprice = addprice2;
             roomtypen.commissionrate = commissionrate;
+            roomtypen.fixedcommission = 0;
             roomtypen.state = "正在审核";
             roomtypen.create();
         }else{
@@ -162,6 +166,8 @@ public class RoomControl extends Controller {
             oldroomtypen.bednumber = addbednumber2;
             oldroomtypen.publicprice = addprice2;
             oldroomtypen.commissionrate = commissionrate;
+            oldroomtypen.fixedcommission = 0;
+            oldroomtypen.state = "正在审核";
             oldroomtypen.save();
         }
         String msg ="Success!";
@@ -196,6 +202,22 @@ public class RoomControl extends Controller {
     public static String deletedaytime(String roomtype){
         String id = session.get("hotelid");
         RoomTypeDaytime room = RoomTypeDaytime.find("byRoomtypeAndHotel_id",roomtype,id).first();
+        room.delete();
+        //返回Html
+        return "delete success!";
+    }
+
+//夜间房
+    public static void nightselectupdateinf(String roomtype){
+        String id = session.get("hotelid");
+        RoomTypeNighttime room = RoomTypeNighttime.find("byRoomtypeAndHotel_id",roomtype,id).first();
+        //返回json
+        renderJSON (new Gson().toJson(room).toString());
+    }
+
+    public static String deletenighttime(String roomtype){
+        String id = session.get("hotelid");
+        RoomTypeNighttime room = RoomTypeNighttime.find("byRoomtypeAndHotel_id",roomtype,id).first();
         room.delete();
         //返回Html
         return "delete success!";

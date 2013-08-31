@@ -5,6 +5,7 @@ import play.data.validation.Required;
 import play.db.jpa.GenericModel;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,39 +33,42 @@ public class RoomManagerNighttime extends GenericModel{
     public String roomtype;
 
     @Required
-    public String date;
+    public Date date;
 
     @Required
-    public String starttime;
+    public Date starttime;
 
     @Required
-    public String endtime;
+    public Date endtime;
+
+    @Required
+    public String state;
 
 //    @Required
 //    public String roomnumber;
 
     @Required
-    public String roomprice;
+    public double roomprice;
 
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){
         html.append("<tr class=\"odd\">");
         html.append("<td>"+this.roomtype+"</td>");
+        html.append("<td>"+this.date+"</td>");
         html.append("<td>"+this.starttime+"</td>");
         html.append("<td>"+this.endtime+"</td>");
-//        html.append("<td>"+this.roomnumber+"</td>");
         html.append("<td>"+this.roomprice+"</td>");
 
-        html.append("<td><a class=\"edit\" href=\"javascript:;\">修改</a></td>");
-        html.append("<td><a id="+this.roomtype+" class=\"delete\" href=\"javascript:;\">删除</a></td>");
+        html.append("<td><a class=\"edit\" href=\"javascript:;\">编辑</a></td>");
+        html.append("<td><a id="+this.roomtype+" class=\"delete\" href=\"javascript:;\">停售</a></td>");
         html.append("</tr>");
     }
 
-    public static String tohtml(List<RoomManagerNighttime> roommanagerdaytimefs){
+    public static String tohtml(List<RoomManagerNighttime> roomManagerNighttimes){
         StringBuffer html=new StringBuffer();
 
-        for(int i=0;i<roommanagerdaytimefs.size();i++)
-            roommanagerdaytimefs.get(i).toTd(html);
+        for(int i=0;i<roomManagerNighttimes.size();i++)
+            roomManagerNighttimes.get(i).toTd(html);
 
         return html.toString();
     }

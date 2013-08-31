@@ -35,26 +35,24 @@ GET     /hotel/select                           manager.HotelControl.select
 POST    /room/save                              manager.MoreRoomControl.savedtf
 POST    /room/savett                            manager.MoreRoomControl.savedtt
 POST    /room/selectdtf                         manager.MoreRoomControl.selectdtf
-GET     /room/selectdtf                         manager.MoreRoomControl.selectdtf
-POST    /room/selectdtt                         manager.MoreRoomControl.selectdtt
-GET     /room/selectdtt                         manager.MoreRoomControl.selectdtt
 POST    /room/deletedtf                         manager.MoreRoomControl.deletedtf
-POST    /room/deletedtt                         manager.MoreRoomControl.deletedtt
 POST    /room/startsell                         manager.MoreRoomControl.startsell
 POST    /room/stopsell                          manager.MoreRoomControl.stopsell
 
 POST    /roomnight/save                         manager.MoreRoomNightControl.savedtf
 POST    /roomnight/savett                       manager.MoreRoomNightControl.savedtt
-POST    /roomnight/selectdtf                    manager.MoreRoomNightControl.selectdtf
-GET     /roomnight/selectdtf                    manager.MoreRoomNightControl.selectdtf
-POST    /roomnight/selectdtt                    manager.MoreRoomNightControl.selectdtt
-GET     /roomnight/selectdtt                    manager.MoreRoomNightControl.selectdtt
+POST    /roomnight/selectnt                     manager.MoreRoomNightControl.selectnt
+
 POST    /roomnight/deletedtf                    manager.MoreRoomNightControl.deletedtf
 POST    /roomnight/deletedtt                    manager.MoreRoomNightControl.deletedtt
 
 POST    /order/savein                           manager.OrderControl.savein
 POST    /order/saveout                          manager.OrderControl.saveout
 
+POST    /ordernight/savein                      manager.OrderControl.nightsavein
+POST    /ordernight/saveout                     manager.OrderControl.nightsaveout
+POST    /ordernight/savefull                    manager.OrderControl.nightsavefull
+POST    /ordernight/saveempty                   manager.OrderControl.nightsaveempty
 
 
 # Ignore favicon requests

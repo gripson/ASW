@@ -83,8 +83,8 @@ public class OrderDaytime extends GenericModel{
         html.append("<td style=\"display:none;\">"+this.retentiontime+"</td>");
         html.append("<td style=\"display:none;\">"+this.contact+"</td>");
         html.append("<td style=\"display:none;\">"+this.note+"</td>");
-        html.append("<td><a id="+this.id+" class=\"in\" >已入住</a></td>");
-        html.append("<td><a id="+this.id+" class=\"out\">未入住</a></td>");
+        html.append("<td><a id="+this.id+" class=\"in\" href=\"javascript:;\">已入住</a></td>");
+        html.append("<td><a id="+this.id+" class=\"out\" href=\"javascript:;\">未入住</a></td>");
         html.append("</tr>");
     }
 

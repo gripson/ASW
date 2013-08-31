@@ -47,7 +47,7 @@ var TableAdvanced = function () {
                 [5, 15, 20, "All"] // change per page values here
             ],
             // set the initial value
-            "iDisplayLength": 10,
+            "iDisplayLength": 5,
         });
 
         jQuery('#sample_1_wrapper .dataTables_filter input').addClass("m-wrap small"); // modify table search input

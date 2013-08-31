@@ -101,7 +101,7 @@ var TableAdvanced = function () {
                 //alert(this.id);
                 $.ajax({
                     type:"post",
-                    url:"/order/savein",//传入action来处理
+                    url:"/order/saveout",//传入action来处理
                     data: "orderdtid="+this.id+"&ttt="+Math.random(),
                     dataType: "text",
                     error:function(){
@@ -117,6 +117,7 @@ var TableAdvanced = function () {
                 })
                 oTable.fnDeleteRow(nRow);
         });
+		
         $('#sample_1').on('click', ' tbody td .row-details', function () {
             var nTr = $(this).parents('tr')[0];
             if ( oTable.fnIsOpen(nTr) )

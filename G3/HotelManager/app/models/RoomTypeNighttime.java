@@ -82,8 +82,8 @@ public class RoomTypeNighttime extends GenericModel{
         html.append("<td style=\"display:none;\">"+this.floor+"</td>");
         html.append("<td style=\"display:none;\">"+this.bednumber+"</td>");
 
-        html.append("<td><a data-toggle=\"modal\" href=\"#stack1\" class=\"edit\" href=\"javascript:;\">修改</a></td>");
-        html.append("<td><a class=\"delete\" href=\"javascript:;\">删除</a></td>");
+        html.append("<td><a id="+this.roomtype+" data-toggle=\"modal\" href=\"#stack1\" class=\"edit\" >修改</a></td>");
+        html.append("<td><a id="+this.roomtype+" class=\"delete\" href=\"javascript:;\">删除</a></td>");
         html.append("</tr>");
     }
 

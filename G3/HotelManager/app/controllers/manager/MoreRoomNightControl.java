@@ -4,6 +4,7 @@ import models.*;
 import play.mvc.Controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -67,25 +68,54 @@ public class MoreRoomNightControl extends Controller {
 //        return msg;
 //    }
 //
-//    public static String selectdtf(){
-//        String id = session.get("hotelid");
-//        //找到当前酒店的所有日间房型
-//        List<RoomTypeNighttime> roomtypedaytimes = RoomTypeNighttime.find("byHotel_id",id).fetch();
-//        List<RoomManagerNighttimeF> roommanagerdaytimefs = new ArrayList<RoomManagerNighttimeF>();
-//        //遍历所有日间房型
-//        for (Iterator i = roomtypedaytimes.iterator(); i.hasNext();){
-//            //获取日间房型对象
-//            RoomTypeNighttime roomtypedaytime = (RoomTypeNighttime) i.next();
-//            //根据日间房型对应的ID号，并依据房型的ID号找到对应的余房对象
-//            RoomManagerNighttimeF roommanagerdaytimef = RoomManagerNighttimeF.find("byRoomtypenighttime_id",roomtypedaytime.id).first();
-//            //将所找到的余房对象加入到日间房余房的对象列表中
-//            if(roommanagerdaytimef != null)
-//                roommanagerdaytimefs.add(roommanagerdaytimef);
-//        }
-//        String date = RoomManagerNighttimeF.tohtml(roommanagerdaytimefs);
-//        //返回Html
-//        return date;
-//    }
+        public static String selectnt(){
+            String id = session.get("hotelid");
+            //找到当前酒店的所有日间房型
+            List<RoomTypeNighttime> roomtypenighttimes = RoomTypeNighttime.find("byHotel_id",id).fetch();
+            List<RoomManagerNighttime> roommanagernighttimes = new ArrayList<RoomManagerNighttime>();
+            createrminfo(roomtypenighttimes);
+            //遍历所有日间房型
+            for (Iterator i = roomtypenighttimes.iterator(); i.hasNext();){
+                //获取日间房型对象
+                RoomTypeNighttime roomtypenighttime = (RoomTypeNighttime) i.next();
+                //根据日间房型对应的ID号，并依据房型的ID号找到对应的余房对象
+                List<RoomManagerNighttime> roommanagernighttime = RoomManagerNighttime.find("byRoomtypenighttime_id",roomtypenighttime.id).fetch();
+                for(int j=0;j<roommanagernighttime.size();j++){
+                    //将所找到的余房对象加入到日间房余房的对象列表中
+                    roommanagernighttimes.add(roommanagernighttime.get(j));
+                }
+            }
+            String date = RoomManagerNighttime.tohtml(roommanagernighttimes);
+            //返回Html
+            return date;
+        }
+
+        public static void createrminfo(List<RoomTypeNighttime> roomtntime){
+            List<RoomManagerNighttime> roommnts = null;
+            Date date = new Date();
+            for(int i=0;i<roomtntime.size();i++){
+                if(roomtntime.get(i).state.equals("正在审核")){
+                    roommnts = RoomManagerNighttime.find("byRoomtypenighttime_id",roomtntime.get(i).id).fetch();
+                    if(!roommnts.isEmpty()){
+                        for (int j =0;j<roommnts.size();j++)
+                            roommnts.get(j).delete();
+                    }
+                }else if (roomtntime.get(i).state.equals("审核通过")){
+                    roommnts = RoomManagerNighttime.find("byRoomtypenighttime_id",roomtntime.get(i).id).fetch();
+                    if(roommnts.isEmpty()){
+                        for (int time =1;time<=7;time++){
+                            RoomManagerNighttime roommnt = new RoomManagerNighttime();
+                            roommnt.roomtypenighttime = roomtntime.get(i);
+                            roommnt.roomprice = roomtntime.get(i).loveprice;
+                            roommnt.roomtype = roomtntime.get(i).roomtype;
+                            roommnt.date = date;
+//                          roommnt.state = "开售";
+                            roommnt.create();
+                        }
+                    }
+                }
+            }
+        }
 //
 //    public static String selectdtt(){
 //        String id = session.get("hotelid");

@@ -255,7 +255,7 @@
 <div class="portlet-body">
 <div class="btn-group">
 
-    <button class="btn green" href="#stack1" data-toggle="modal">
+    <button id="btnadd" class="btn green" href="#stack1" data-toggle="modal">
 
         添加 <i class="icon-plus"></i>
 
@@ -282,58 +282,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-    <td>标准房</td>
-    <td>中等床</td>
-    <td >无</td>
-    <td >有</td>
-    <td >230</td>
-    <td >300</td>
-    <td >20%</td>
-    <td >20</td>
-    <td >正在审核</td>
-    <td><a href="#stack1" data-toggle="modal" class="edit">修改</a></td>
-    <td><a class="delete" href="javascript:;">删除</a></td>
-</tr>
-<tr>
-    <td>标准房</td>
-    <td>中等床</td>
-    <td >无</td>
-    <td >有</td>
-    <td >230</td>
-    <td >300</td>
-    <td >20%</td>
-    <td >20</td>
-    <td >正在审核</td>
-    <td><a href="#responsive" data-toggle="modal" class="edit">修改</a></td>
-    <td><a class="delete" href="javascript:;">删除</a></td>
-</tr>
-<tr>
-    <td>标准房</td>
-    <td>中等床</td>
-    <td >无</td>
-    <td >有</td>
-    <td >230</td>
-    <td >300</td>
-    <td >20%</td>
-    <td >20</td>
-    <td >正在审核</td>
-    <td><a href="#responsive" data-toggle="modal" class="edit">修改</a></td>
-    <td><a class="delete" href="javascript:;">删除</a></td>
-</tr>
-<tr>
-    <td>标准房</td>
-    <td>中等床</td>
-    <td >无</td>
-    <td >有</td>
-    <td >230</td>
-    <td >300</td>
-    <td >20%</td>
-    <td >20</td>
-    <td >正在审核</td>
-    <td><a href="#responsive" data-toggle="modal" class="edit">修改</a></td>
-    <td><a class="delete" href="javascript:;">删除</a></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -551,6 +499,117 @@
             }
         })
     });
+</script>
+*{删除一种房型}*
+<script>
+    $("#sample_1 a.delete").click(function(){
+        // alert("确定要删除"+this.id);
+        if(confirm('确定删除？')) {
+            alert('确定');
+            $.ajax({
+                type:"post",
+                url:"@{manager.RoomControl.deletenighttime()}",//传入action来处理
+                data: "&roomtype="+this.id+"&ttt="+Math.random(),
+                dataType: "text",
+                error:function(){
+                    alert("服务器繁忙，请稍候在试！");
+                },
+                success:function(msg){
+                    if(msg != null){
+                        alert(msg);
+                        location.reload();
+                    }
+                }
+            });
+        } else {
+            alert('取消');
+        }
+    });
+</script>
+*{全局变量辅助修改时寻找对应的房型信息}*
+<script>
+    $(function(){
+        var updateid = null;
+    });
+</script>
+<script>
+    $("#sample_1 a.edit").click(function(){
+        updateid = this.id;
+        $.ajax({
+            type:"post",
+            url:"@{manager.RoomControl.nightselectupdateinf()}",//传入action来处理
+            data: "&roomtype="+updateid+"&ttt="+Math.random(),
+            dataType: "json",
+            error:function(){
+                alert("服务器繁忙，请稍候在试！");
+            },
+            success:function(msg){
+                if(msg != null){
+                    //alert(msg);
+                    //固定佣金
+                    $("input[name='addroomtype']").val(msg.roomtype);
+                    $("input[name='addbedtype']").val(msg.bed);
+                    $("input[name='addbreakfast']").val(msg.breakfast);
+                    $("input[name='addnetwork']").val(msg.network);
+                    $("input[name='addloveprice']").val(msg.loveprice);
+                    $("input[name='addpreroom']").val(msg.preroom);
+                    $("input[name='addarea']").val(msg.area);
+                    $("input[name='addfloot']").val(msg.floor);
+                    $("input[name='addbednumber']").val(msg.bednumber);
+//                    $("input[name='addpicture']").val();
+                    $("input[name='addprice']").val(msg.publicprice);
+                    $("input[name='fixedcommission']").val(msg.fixedcommission);
+                    //佣金比率
+                    $("input[name='addroomtype2']").val(msg.roomtype);
+                    $("input[name='addbedtype2']").val(msg.bed);
+                    $("input[name='addbreakfast2']").val(msg.breakfast);
+                    $("input[name='addnetwork2']").val(msg.network);
+                    $("input[name='addloveprice2']").val(msg.loveprice);
+                    $("input[name='addpreroom2']").val(msg.preroom);
+                    $("input[name='addarea2']").val(msg.area);
+                    $("input[name='addfloot2']").val(msg.floor);
+                    $("input[name='addbednumber2']").val(msg.bednumber);
+//                    $("input[name='addpicture']").val();
+                    $("input[name='addprice2']").val(msg.publicprice);
+                    $("input[name='commissionrate']").val(msg.commissionrate);
+                }else{
+                    alert("出错！");
+                }
+            }
+        })
+
+    });
+</script>
+<script>
+    $("#btnadd").click(function(){
+//        updateid = 0;
+//固定佣金至空
+        $("input[name='addroomtype']").val("");
+        $("input[name='addbedtype']").val("");
+        $("input[name='addbreakfast']").val("");
+        $("input[name='addnetwork']").val("");
+        $("input[name='addloveprice']").val("");
+        $("input[name='addpreroom']").val("");
+        $("input[name='addarea']").val("");
+        $("input[name='addfloot']").val("");
+        $("input[name='addbednumber']").val("");
+//      $("input[name='addpicture']").val();
+        $("input[name='addprice']").val("");
+        $("input[name='fixedcommission']").val("");
+//佣金比率至空
+        $("input[name='addroomtype2']").val("");
+        $("input[name='addbedtype2']").val("");
+        $("input[name='addbreakfast2']").val("");
+        $("input[name='addnetwork2']").val("");
+        $("input[name='addloveprice2']").val("");
+        $("input[name='addpreroom2']").val("");
+        $("input[name='addarea2']").val("");
+        $("input[name='addfloot2']").val("");
+        $("input[name='addbednumber2']").val("");
+//      $("input[name='addpicture']").val();
+        $("input[name='addprice2']").val("");
+        $("input[name='commissionrate']").val("");
+  });
 </script>
 <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
 <!-- END BODY -->

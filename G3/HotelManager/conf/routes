@@ -35,13 +35,15 @@ GET     /hotel/select                           manager.HotelControl.select
 POST    /room/save                              manager.MoreRoomControl.savedtf
 POST    /room/savett                            manager.MoreRoomControl.savedtt
 POST    /room/selectdtf                         manager.MoreRoomControl.selectdtf
-POST    /room/deletedtf                         manager.MoreRoomControl.deletedtf
+# POST    /room/deletedtf                         manager.MoreRoomControl.deletedtf
 POST    /room/startsell                         manager.MoreRoomControl.startsell
 POST    /room/stopsell                          manager.MoreRoomControl.stopsell
 
 POST    /roomnight/save                         manager.MoreRoomNightControl.savedtf
 POST    /roomnight/savett                       manager.MoreRoomNightControl.savedtt
 POST    /roomnight/selectnt                     manager.MoreRoomNightControl.selectnt
+POST    /roomnight/startsell                    manager.MoreRoomNightControl.startsell
+POST    /roomnight/stopsell                     manager.MoreRoomNightControl.stopsell
 
 POST    /roomnight/deletedtf                    manager.MoreRoomNightControl.deletedtf
 POST    /roomnight/deletedtt                    manager.MoreRoomNightControl.deletedtt

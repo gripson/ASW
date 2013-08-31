@@ -1,5 +1,6 @@
 package controllers.manager;
 
+import com.google.gson.Gson;
 import models.*;
 import play.mvc.Controller;
 
@@ -109,13 +110,34 @@ public class MoreRoomNightControl extends Controller {
                             roommnt.roomprice = roomtntime.get(i).loveprice;
                             roommnt.roomtype = roomtntime.get(i).roomtype;
                             roommnt.date = date;
-//                          roommnt.state = "开售";
+                            roommnt.state = "开售";
                             roommnt.create();
                         }
                     }
                 }
             }
         }
+
+    public static String stopsell(String roomid){
+        RoomManagerNighttime roommdt = RoomManagerNighttime.find("byId",roomid).first();
+        roommdt.state = "停售";
+        roommdt.save();
+        return roommdt.state+"成功停售！";
+    }
+
+    public static String startsell(String roomid){
+        RoomManagerNighttime roommdt = RoomManagerNighttime.find("byId",roomid).first();
+        roommdt.state = "开售";
+        roommdt.save();
+        return "成功开售！";
+    }
+
+    //夜间房
+    public static void selectupdateinf(String roommanagernt){
+        RoomManagerNighttime roommanagernighttime = RoomManagerNighttime.find("byId",roommanagernt).first();
+        //返回json
+        renderJSON (new Gson().toJson(roommanagernighttime).toString());
+    }
 //
 //    public static String selectdtt(){
 //        String id = session.get("hotelid");

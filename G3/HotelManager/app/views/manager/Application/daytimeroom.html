@@ -497,7 +497,7 @@
                         <div class="control-group">
                             <div class="controls">
                                 <div class="input-append bootstrap-timepicker-component">
-                                    <input class="m-wrap m-ctrl-small timepicker-24" type="text" />
+                                    <input name="starttime" class="m-wrap m-ctrl-small timepicker-24" type="text" />
                                     <span class="add-on"><i class="icon-time"></i></span>
                                 </div>
                             </div>
@@ -506,7 +506,7 @@
                         <div class="control-group">
                             <div class="controls">
                                 <div class="input-append bootstrap-timepicker-component">
-                                    <input class="m-wrap m-ctrl-small timepicker-24" type="text" />
+                                    <input name="endtime" class="m-wrap m-ctrl-small timepicker-24" type="text" />
                                     <span class="add-on"><i class="icon-time"></i></span>
                                 </div>
                             </div>
@@ -519,7 +519,7 @@
                 <button type="button" class="btn blue" id="updateinfo">保存</button>
             </div>
         </div>
-        <!--佣金比率MODALS 结束-->
+        <!--MODALS结束-->
         <!-- END EXAMPLE TABLE PORTLET-->
 
     </div>
@@ -628,7 +628,33 @@
     });
 
 </script>
+<script>
+    $("#sample_editable_1 a.update").click(function(){
+        updateid = this.id;
+        $.ajax({
+            type:"post",
+            url:"@{manager.MoreRoomControl.selectupdateinf()}",//传入action来处理
+            data: "&roommanagerdt="+updateid+"&ttt="+Math.random(),
+            dataType: "json",
+            error:function(){
+                alert("服务器繁忙，请稍候在试！");
+            },
+            success:function(msg){
+                if(msg != null){
+                    //alert(msg);
+                    //编辑时显示的内容
+                    $("input[name='roomtype']").val(msg.roomtype);
+                    $("input[name='roomnumber']").val(msg.roomnumber);
+                    $("input[name='starttime']").val(msg.starttime);
+                    $("input[name='endtime']").val(msg.endtime);
+                }else{
+                    alert("出错！");
+                }
+            }
+        })
 
+    });
+</script>
 <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
 
 <!-- END BODY -->

@@ -1,5 +1,6 @@
 package controllers.manager;
 
+import com.google.gson.Gson;
 import models.RoomManagerDaytime;
 import models.RoomTypeDaytime;
 import play.mvc.Controller;
@@ -132,6 +133,13 @@ public class MoreRoomControl extends Controller {
         roommdt.state = "开售";
         roommdt.save();
         return "成功开售！";
+    }
+
+    //日间房
+    public static void selectupdateinf(String roommanagerdt){
+        RoomManagerDaytime roommanagerdaytime = RoomManagerDaytime.find("byId",roommanagerdt).first();
+        //返回json
+        renderJSON (new Gson().toJson(roommanagerdaytime).toString());
     }
 //
 //    public static String selectdtt(){

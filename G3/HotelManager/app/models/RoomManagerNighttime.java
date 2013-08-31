@@ -58,9 +58,12 @@ public class RoomManagerNighttime extends GenericModel{
         html.append("<td>"+this.starttime+"</td>");
         html.append("<td>"+this.endtime+"</td>");
         html.append("<td>"+this.roomprice+"</td>");
-
-        html.append("<td><a class=\"edit\" href=\"javascript:;\">编辑</a></td>");
-        html.append("<td><a id="+this.roomtype+" class=\"delete\" href=\"javascript:;\">停售</a></td>");
+        html.append("<td><a id="+this.id+" data-toggle=\"modal\" href=\"#responsive\" class=\"update\">编辑</a></td>");
+        if(this.state.equals("开售")){
+            html.append("<td><a id="+this.id+" class=\"stop\" href=\"javascript:;\">停售</a></td>");
+        }else{
+            html.append("<td><a id="+this.id+" class=\"start\" href=\"javascript:;\">开售</a></td>");
+        }
         html.append("</tr>");
     }
 

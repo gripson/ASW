@@ -18,6 +18,7 @@
     <file path="/table-editable-ordermanger.js" changelist="afa80d2d-1259-4489-947d-a6fb2ebd7731" time="1376653734203" ignored="false" />
     <file path="/daytimeroom.html" changelist="afa80d2d-1259-4489-947d-a6fb2ebd7731" time="1378029267339" ignored="false" />
     <file path="/MoreRoomControl.java" changelist="afa80d2d-1259-4489-947d-a6fb2ebd7731" time="1378028674426" ignored="false" />
+    <file path="/roommanager.html" changelist="afa80d2d-1259-4489-947d-a6fb2ebd7731" time="1378050521338" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,41 +79,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="daytimeroom.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/manager/Application/daytimeroom.html">
+      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/routes">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="660" column="10" selection-start="16914" selection-end="16914" vertical-scroll-proportion="-5.056604">
-              <folding>
-                <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoomManagerDaytime.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/RoomManagerDaytime.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="50" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.681736">
+            <state line="10" column="25" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoreRoomControl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/manager/MoreRoomControl.java">
+      <file leaf-file-name="nightordermanager.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/manager/Application/nightordermanager.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="180" column="28" selection-start="7562" selection-end="7562" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/routes">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="25" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0">
+            <state line="227" column="21" selection-start="8251" selection-end="8251" vertical-scroll-proportion="-0.018181818">
               <folding />
             </state>
           </provider>
@@ -128,7 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/Application/index.html" />
         <option value="$PROJECT_DIR$/app/models/Admin.java" />
         <option value="$PROJECT_DIR$/app/views/Application/usermanager.html" />
         <option value="$PROJECT_DIR$/conf/routes" />
@@ -142,16 +120,17 @@
         <option value="$PROJECT_DIR$/public/media/js/table-editable-ordermanger.js" />
         <option value="$PROJECT_DIR$/app/controllers/AdminControl.java" />
         <option value="$PROJECT_DIR$/app/controllers/manager/MoreRoomControl.java" />
-        <option value="$PROJECT_DIR$/app/views/manager/Application/daytimeroom.html" />
         <option value="$PROJECT_DIR$/app/models/RoomManagerDaytime.java" />
+        <option value="$PROJECT_DIR$/app/views/manager/Application/roommanager.html" />
+        <option value="$PROJECT_DIR$/app/views/manager/Application/daytimeroom.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="85" />
+    <option name="y" value="156" />
+    <option name="width" value="1138" />
+    <option name="height" value="674" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -525,7 +504,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="85" y="156" width="1138" height="674" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -533,7 +512,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38765007" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4385965" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -546,7 +525,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22720365" sideWeight="0.6123499" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2789179" sideWeight="0.5614035" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2010582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -620,11 +599,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/media/js/form-wizard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="180" column="50" selection-start="7789" selection-end="7789" vertical-scroll-proportion="-3.357143" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/media/js/select2.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="88" selection-end="88" vertical-scroll-proportion="-0.02793296" />
@@ -680,16 +654,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/RoomTypeDaytime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="437" selection-end="437" vertical-scroll-proportion="-0.048929665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/RoomManagerDaytime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="5" selection-start="2362" selection-end="2362" vertical-scroll-proportion="1.9660378">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/manager/MoreRoomControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="28" selection-start="7562" selection-end="7562" vertical-scroll-proportion="1.5396227">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/manager/Application/daytimeroom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="680" column="38" selection-start="17732" selection-end="17732" vertical-scroll-proportion="0.7090909">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/manager/Application/roommanager.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="508" column="9" selection-start="18402" selection-end="19801" vertical-scroll-proportion="1.2">
+        <state line="507" column="38" selection-start="19941" selection-end="19941" vertical-scroll-proportion="0.21818182">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/manager/RoomControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="5" selection-start="2242" selection-end="4142" vertical-scroll-proportion="1.9533678">
+        <state line="85" column="14" selection-start="3718" selection-end="3718" vertical-scroll-proportion="0.27131784">
           <folding />
         </state>
       </provider>
@@ -701,34 +705,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/RoomTypeDaytime.java">
+    <entry file="file://$PROJECT_DIR$/app/views/manager/Application/nightordermanager.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="437" selection-end="437" vertical-scroll-proportion="-0.048929665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/manager/Application/daytimeroom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="660" column="10" selection-start="16914" selection-end="16914" vertical-scroll-proportion="-5.056604">
-          <folding>
-            <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/manager/MoreRoomControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="180" column="28" selection-start="7562" selection-end="7562" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/RoomManagerDaytime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="50" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.681736">
+        <state line="227" column="21" selection-start="8251" selection-end="8251" vertical-scroll-proportion="-0.018181818">
           <folding />
         </state>
       </provider>

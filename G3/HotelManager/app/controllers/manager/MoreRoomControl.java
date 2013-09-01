@@ -5,6 +5,8 @@ import models.RoomManagerDaytime;
 import models.RoomTypeDaytime;
 import play.mvc.Controller;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -140,6 +142,44 @@ public class MoreRoomControl extends Controller {
         RoomManagerDaytime roommanagerdaytime = RoomManagerDaytime.find("byId",roommanagerdt).first();
         //返回json
         renderJSON (new Gson().toJson(roommanagerdaytime).toString());
+    }
+
+    public static String updateinfo(String roommanagerdt,String starttime,String endtime,int roomnumber){
+
+        RoomManagerDaytime roommanagerdaytime = RoomManagerDaytime.find("byId", roommanagerdt).first();
+        Date sourcedate = roommanagerdaytime.date;
+
+        Date startdate = new Date();
+
+        String hours = starttime.substring(0,2);
+        int ihours = Integer.parseInt(hours);
+        String minutes = starttime.substring(3,5);
+        int iminutes = Integer.parseInt(minutes);
+        String seconds = starttime.substring(6,8);
+        int iseconds = Integer.parseInt(seconds);
+        startdate.setHours(ihours);
+        startdate.setMinutes(iminutes);
+        startdate.setSeconds(iseconds);
+
+        Date enddate = new Date();
+
+        String ehours = endtime.substring(0,2);
+        int iehours = Integer.parseInt(ehours);
+        String eminutes = endtime.substring(3,5);
+        int ieminutes = Integer.parseInt(eminutes);
+        String eseconds = endtime.substring(6,8);
+        int ieseconds = Integer.parseInt(eseconds);
+        enddate.setHours(iehours);
+        enddate.setMinutes(ieminutes);
+        enddate.setSeconds(ieseconds);
+
+        roommanagerdaytime.roomnumber = roomnumber;
+        roommanagerdaytime.starttime = startdate;
+        roommanagerdaytime.endtime = enddate;
+        roommanagerdaytime.save();
+
+        String msg = "保存成功！";
+        return msg;
     }
 //
 //    public static String selectdtt(){

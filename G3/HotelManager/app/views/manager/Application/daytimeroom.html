@@ -488,7 +488,8 @@
                 <div class="row-fluid">
                     <div class="span6">
                         <h4>房型</h4>
-                        <p><input type="text" class="span12 m-wrap" name="roomtype"></p>
+                        <p><input class="span12 m-wrap" type="text" name="roomtype" disabled/></p>
+                        *{<p><input type="text" class="span12 m-wrap" name="roomtype"></p>}*
                         <h4>余房量</h4>
                         <p><input type="text" class="span12 m-wrap" name="roomnumber"></p>
                     </div>
@@ -631,9 +632,7 @@
 
 </script>
 <script>
-
         var updateid = null;
-
 </script>
 <script>
     $("#sample_editable_1 a.update").click(function(){

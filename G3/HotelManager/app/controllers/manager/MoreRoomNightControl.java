@@ -95,7 +95,7 @@ public class MoreRoomNightControl extends Controller {
             List<RoomManagerNighttime> roommnts = null;
             Date date = new Date();
             for(int i=0;i<roomtntime.size();i++){
-                if(roomtntime.get(i).state.equals("正在审核")){
+                if(roomtntime.get(i).state.equals("正在审核") || roomtntime.get(i).state.equals("已删除")){
                     roommnts = RoomManagerNighttime.find("byRoomtypenighttime_id",roomtntime.get(i).id).fetch();
                     if(!roommnts.isEmpty()){
                         for (int j =0;j<roommnts.size();j++)
@@ -137,6 +137,45 @@ public class MoreRoomNightControl extends Controller {
         RoomManagerNighttime roommanagernighttime = RoomManagerNighttime.find("byId",roommanagernt).first();
         //返回json
         renderJSON (new Gson().toJson(roommanagernighttime).toString());
+    }
+
+    //更新修改的开售和停售时间
+    public static String updateinfo(String roommanagerdt,String starttime,String endtime,int roomnumber){
+
+        RoomManagerNighttime roommanagernighttime = RoomManagerNighttime.find("byId", roommanagerdt).first();
+        Date sourcedate = roommanagernighttime.date;
+
+        Date startdate = new Date();
+
+        String hours = starttime.substring(0,2);
+        int ihours = Integer.parseInt(hours);
+        String minutes = starttime.substring(3,5);
+        int iminutes = Integer.parseInt(minutes);
+        String seconds = starttime.substring(6,8);
+        int iseconds = Integer.parseInt(seconds);
+        startdate.setHours(ihours);
+        startdate.setMinutes(iminutes);
+        startdate.setSeconds(iseconds);
+
+        Date enddate = new Date();
+
+        String ehours = endtime.substring(0,2);
+        int iehours = Integer.parseInt(ehours);
+        String eminutes = endtime.substring(3,5);
+        int ieminutes = Integer.parseInt(eminutes);
+        String eseconds = endtime.substring(6,8);
+        int ieseconds = Integer.parseInt(eseconds);
+        enddate.setHours(iehours);
+        enddate.setMinutes(ieminutes);
+        enddate.setSeconds(ieseconds);
+
+
+        roommanagernighttime.starttime = startdate;
+        roommanagernighttime.endtime = enddate;
+        roommanagernighttime.save();
+
+        String msg = "保存成功！";
+        return msg;
     }
 //
 //    public static String selectdtt(){

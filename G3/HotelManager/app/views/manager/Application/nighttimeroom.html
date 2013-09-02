@@ -482,9 +482,11 @@
                 <div class="row-fluid">
                     <div class="span6">
                         <h4>房型</h4>
-                        <p><input type="text" class="span12 m-wrap" name="roomtype"></p>
+                        <p><input class="span12 m-wrap" type="text" name="roomtype" disabled/></p>
+                        *{<p><input type="text" class="span12 m-wrap" name="roomtype"></p>}*
                         <h4>余房量</h4>
-                        <p><input type="text" class="span12 m-wrap" name="roomnumber"></p>
+                        <p><input class="span12 m-wrap" type="text" name="roomnumber" disabled/></p>
+                        *{<p><input type="text" class="span12 m-wrap" name="roomnumber"></p>}*
                     </div>
                     <div class="span6">
                         <h4>开售时间</h4>
@@ -610,6 +612,8 @@
 
 <script src="../public/media/js/app.js"></script>
 
+<script src="../public/media/js/Date.min.js"></script>
+
 <script src="../public/media/js/table-editable-nighttimeroom-sample_editable_1.js " charset="utf-8"></script>
 
 <script src="../public/media/js/table-editable-nighttimeroom-sample_editable_2.js " charset="utf-8"></script>
@@ -644,14 +648,36 @@
                     //编辑时显示的内容
                     $("input[name='roomtype']").val(msg.roomtype);
                     $("input[name='roomnumber']").val(msg.roomnumber);
-                    $("input[name='starttime']").val(msg.starttime);
-                    $("input[name='endtime']").val(msg.endtime);
+                    $("input[name='starttime']").val($D(msg.starttime).format('%H:%M:%S'));
+                    $("input[name='endtime']").val($D(msg.endtime).format('%H:%M:%S'));
                 }else{
                     alert("出错！");
                 }
             }
         })
 
+    });
+</script>
+*{修改余房信息}*
+<script>
+    $("#updateinfo").click(function(){
+        //alert(document.getElementsByName("starttime")[0].value);
+        $.ajax({
+            type:"post",
+            url:"@{manager.MoreRoomNightControl.updateinfo()}",//传入action来处理
+            data: "roomnumber="+document.getElementsByName("roomnumber")[0].value+"&roommanagerdt="+updateid+"&starttime="+document.getElementsByName("starttime")[0].value+"&endtime="+document.getElementsByName("endtime")[0].value+"&ttt="+Math.random(),
+            dataType: "text",
+            error:function(){
+                alert("服务器繁忙，请稍候在试！");
+            },
+            success:function(msg){
+                if(msg != null){
+                    $('#responsive').modal('hide');
+                    alert(msg);
+                    location.reload();
+                }
+            }
+        })
     });
 </script>
 <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>

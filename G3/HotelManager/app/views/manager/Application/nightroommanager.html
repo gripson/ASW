@@ -296,7 +296,8 @@
             <div class="row-fluid">
                 <div class="span6">
                     <h4>房型</h4>
-                    <p><input type="text" class="span12 m-wrap" name="addroomtype"></p>
+                    <p><input class="span12 m-wrap" type="text" name="addroomtype" disabled/></p>
+                    *{<p><input type="text" class="span12 m-wrap" name="addroomtype"></p>}*
                     <h4>床型</h4>
                     <p><input type="text" class="span12 m-wrap" name="addbedtype"></p>
                     <h4>早餐</h4>
@@ -339,7 +340,8 @@
             <div class="row-fluid">
                 <div class="span6">
                     <h4>房型</h4>
-                    <p><input type="text" class="span12 m-wrap" name="addroomtype2"></p>
+                    <p><input class="span12 m-wrap" type="text" name="addroomtype2" disabled/></p>
+                    *{<p><input type="text" class="span12 m-wrap" name="addroomtype2"></p>}*
                     <h4>床型</h4>
                     <p><input type="text" class="span12 m-wrap" name="addbedtype2"></p>
                     <h4>早餐</h4>
@@ -516,7 +518,7 @@
                 },
                 success:function(msg){
                     if(msg != null){
-                        alert(msg);
+                        //alert(msg);
                         location.reload();
                     }
                 }

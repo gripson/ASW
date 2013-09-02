@@ -98,7 +98,7 @@ public class MoreRoomControl extends Controller {
         List<RoomManagerDaytime> roommdts = null;
         Date date = new Date();
         for(int i=0;i<roomtdtime.size();i++){
-            if(roomtdtime.get(i).state.equals("正在审核")){
+            if(roomtdtime.get(i).state.equals("正在审核") || roomtdtime.get(i).state.equals("已删除")){
                 roommdts = RoomManagerDaytime.find("byRoomtypedaytime_id",roomtdtime.get(i).id).fetch();
                 if(!roommdts.isEmpty()){
                     for (int j =0;j<roommdts.size();j++)
@@ -144,6 +144,7 @@ public class MoreRoomControl extends Controller {
         renderJSON (new Gson().toJson(roommanagerdaytime).toString());
     }
 
+    //更新修改的开售和停售时间
     public static String updateinfo(String roommanagerdt,String starttime,String endtime,int roomnumber){
 
         RoomManagerDaytime roommanagerdaytime = RoomManagerDaytime.find("byId", roommanagerdt).first();

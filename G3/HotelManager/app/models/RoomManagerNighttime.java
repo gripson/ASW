@@ -5,6 +5,7 @@ import play.data.validation.Required;
 import play.db.jpa.GenericModel;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -50,13 +51,38 @@ public class RoomManagerNighttime extends GenericModel{
     @Required
     public double roomprice;
 
+    public static String tostring(Date nighttime){
+        String ftime = null;
+        if(nighttime !=null){
+            SimpleDateFormat dateformat = new SimpleDateFormat("HH:mm:ss");
+            Date time = new Date();
+            time = nighttime;
+            ftime = dateformat.format(time);
+        }
+        return ftime;
+    }
+
+    public static String todate(Date datetime){
+        String ftime = null;
+        if(datetime !=null){
+            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy年MM月dd日");
+            Date time = new Date();
+            time = datetime;
+            ftime = dateformat.format(time);
+        }
+        return ftime;
+    }
+
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){
+        String starttime = RoomManagerNighttime.tostring(this.starttime);
+        String endtime = RoomManagerNighttime.tostring(this.endtime);
+        String datetime = RoomManagerNighttime.todate(this.date);
         html.append("<tr class=\"odd\">");
         html.append("<td>"+this.roomtype+"</td>");
-        html.append("<td>"+this.date+"</td>");
-        html.append("<td>"+this.starttime+"</td>");
-        html.append("<td>"+this.endtime+"</td>");
+        html.append("<td>"+datetime+"</td>");
+        html.append("<td>"+starttime+"</td>");
+        html.append("<td>"+endtime+"</td>");
         html.append("<td>"+this.roomprice+"</td>");
         html.append("<td><a id="+this.id+" data-toggle=\"modal\" href=\"#responsive\" class=\"update\">编辑</a></td>");
         if(this.state.equals("开售")){

@@ -202,7 +202,8 @@ public class RoomControl extends Controller {
     public static String deletedaytime(String roomtype){
         String id = session.get("hotelid");
         RoomTypeDaytime room = RoomTypeDaytime.find("byRoomtypeAndHotel_id",roomtype,id).first();
-        room.delete();
+        room.state = "已删除";
+        room.save();
         //返回Html
         return "delete success!";
     }
@@ -218,7 +219,8 @@ public class RoomControl extends Controller {
     public static String deletenighttime(String roomtype){
         String id = session.get("hotelid");
         RoomTypeNighttime room = RoomTypeNighttime.find("byRoomtypeAndHotel_id",roomtype,id).first();
-        room.delete();
+        room.state = "已删除";
+        room.save();
         //返回Html
         return "delete success!";
     }

@@ -1,0 +1,68 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       manager.Application.index
+GET     /login                                  manager.Application.login
+GET     /personal                               manager.Application.personal
+GET     /statistical                            manager.Application.statistical
+GET     /usermanager                            manager.Application.usermanager
+GET     /ordermanager                           manager.Application.ordermanager
+GET     /nightordermanager                      manager.Application.nightordermanager
+GET     /remainroom                             manager.Application.remainroom
+GET     /logs                                   manager.Application.logs
+GET     /error                                  manager.Application.error_404
+GET     /update                                 manager.Application.updateinformation
+GET     /orderedit                              manager.Application.orderedit
+GET     /hotel                                  manager.Application.hotel
+GET     /roommanager                            manager.Application.roommanager
+GET     /nightroommanager                       manager.Application.nightroommanager
+GET     /daytimeroom                            manager.Application.daytimeroom
+GET     /nighttimeroom                          manager.Application.nighttimeroom
+POST    /ajax                                   manager.Application.ajax
+
+POST    /user/save                              manager.Application.saveUser
+POST    /user/login                             manager.Application.logincheck
+POST    /user/select                            manager.AdminControl.select
+POST    /admin/selectinfo                       manager.AdminControl.selectinfo
+POST    /user/delete                            manager.AdminControl.delete
+POST    /hotel/save                             manager.HotelControl.save
+POST    /add                                    manager.Application.add
+POST    /hotel/select                           manager.HotelControl.select
+GET     /hotel/select                           manager.HotelControl.select
+
+POST    /room/save                              manager.MoreRoomControl.savedtf
+POST    /room/savett                            manager.MoreRoomControl.savedtt
+POST    /room/selectdtf                         manager.MoreRoomControl.selectdtf
+# POST    /room/deletedtf                         manager.MoreRoomControl.deletedtf
+POST    /room/startsell                         manager.MoreRoomControl.startsell
+POST    /room/stopsell                          manager.MoreRoomControl.stopsell
+
+POST    /roomnight/save                         manager.MoreRoomNightControl.savedtf
+POST    /roomnight/savett                       manager.MoreRoomNightControl.savedtt
+POST    /roomnight/selectnt                     manager.MoreRoomNightControl.selectnt
+POST    /roomnight/startsell                    manager.MoreRoomNightControl.startsell
+POST    /roomnight/stopsell                     manager.MoreRoomNightControl.stopsell
+
+POST    /roomnight/deletedtf                    manager.MoreRoomNightControl.deletedtf
+POST    /roomnight/deletedtt                    manager.MoreRoomNightControl.deletedtt
+
+POST    /order/savein                           manager.OrderControl.savein
+POST    /order/saveout                          manager.OrderControl.saveout
+
+POST    /ordernight/savein                      manager.OrderControl.nightsavein
+POST    /ordernight/saveout                     manager.OrderControl.nightsaveout
+POST    /ordernight/savefull                    manager.OrderControl.nightsavefull
+POST    /ordernight/saveempty                   manager.OrderControl.nightsaveempty
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+

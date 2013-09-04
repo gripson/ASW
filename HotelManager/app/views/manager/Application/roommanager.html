@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic | Daytimeroom Manager</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="../public/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="../public/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+    <link href="../public/media/css/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../public/media/css/select2_metro.css" />
+    <link rel="stylesheet" href="../public/media/css/DT_bootstrap.css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <link rel="shortcut icon" href="../public/media/image/favicon.ico" />
+    <script src="../public/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+    <script>
+        $.ajax({
+            type:"post",
+            url: "@{manager.RoomControl.select()}", //servlet的url，注意要组合成table的html然后返回就行了
+            cache: false,
+            dateType: 'html',
+            success: function (data) {
+                $("tbody").html(data);
+                //alert(data);
+            },
+            error: function (xhr) { alert("加载失败！"); }
+        });
+
+    </script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse navbar-fixed-top">
+<!-- BEGIN TOP NAVIGATION BAR -->
+<div class="navbar-inner">
+<div class="container-fluid">
+<!-- BEGIN LOGO -->
+<a class="brand" href="@{index()}">
+    <img src="../public/media/image/logo.png" alt="logo" />
+</a>
+<!-- END LOGO -->
+<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+    <img src="../public/media/image/menu-toggler.png" alt="" />
+</a>
+<!-- END RESPONSIVE MENU TOGGLER -->
+<!-- BEGIN TOP NAVIGATION MENU -->
+<ul class="nav pull-right">
+<!-- BEGIN NOTIFICATION DROPDOWN -->
+<li class="dropdown" id="header_notification_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="icon-warning-sign"></i>
+        <span class="badge">6</span>
+    </a>
+    <ul class="dropdown-menu extended notification">
+        <li>
+            <p>您有6个订单需要处理</p>
+        </li>
+        <li class="external">
+            <a href="@{ordermanager}">查看所有订单 <i class="m-icon-swapright"></i></a>
+        </li>
+    </ul>
+</li>
+<!-- END NOTIFICATION DROPDOWN -->
+<!-- BEGIN USER LOGIN DROPDOWN -->
+<li class="dropdown user">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <img alt="" src="../public/media/image/avatar1_small.jpg" />
+        <span class="username">Bob Nilson</span>
+        <i class="icon-angle-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="@{logout}"><i class="icon-key"></i> 注销</a></li>
+    </ul>
+</li>
+<!-- END USER LOGIN DROPDOWN -->
+</ul>
+<!-- END TOP NAVIGATION MENU -->
+</div>
+</div>
+<!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+<!-- BEGIN SIDEBAR -->
+<div class="page-sidebar nav-collapse collapse">
+<!-- BEGIN SIDEBAR MENU -->
+<ul class="page-sidebar-menu">
+<li>
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <div class="sidebar-toggler hidden-phone"></div>
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+</li>
+<li>
+    <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+    <form class="sidebar-search">
+        <div>
+        </div>
+    </form>
+    <!-- END RESPONSIVE QUICK SEARCH FORM -->
+</li>
+    <li class="">
+        <a href="@{index()}">
+            <i class="icon-home"></i>
+            <span class="title">首页</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+    <li class="start active ">
+        <a href="javascript:;">
+            <i class="icon-gift"></i>
+            <span class="title">酒店基本信息</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li >
+                <a href="@{hotel}">
+                    <i class="icon-time"></i>
+                    酒店</a>
+            </li>
+            <li >
+                <a href="@{updateinformation}">
+                    <i class="icon-group"></i>
+                    酒店负责人信息</a>
+            </li>
+            <li >
+                <a href="@{roommanager}">
+                    <i class="icon-coffee"></i>
+                    日间房房型管理</a>
+            </li>
+            <li >
+                <a href="@{nightroommanager}">
+                    <i class="icon-coffee"></i>
+                    夜间房房型管理</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a class="" href="javascript:;">
+            <i class="icon-sitemap"></i>
+            <span class="title">酒店余房管理</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li >
+                <a href="@{daytimeroom}">
+                    <i class="icon-time"></i>
+                    日间房管理</a>
+            </li>
+            <li >
+                <a href="@{nighttimeroom}">
+                    <i class="icon-coffee"></i>
+                    夜间房管理</a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
+        <a href="">
+            <i class="icon-table"></i>
+            <span class="title">订单管理</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li >
+                <a href="@{ordermanager}">
+                    <i class="icon-time"></i>
+                    日间房订单管理</a>
+            </li>
+            <li >
+                <a href="@{nightordermanager}">
+                    <i class="icon-coffee"></i>
+                    夜间房订单管理</a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
+        <a href="@{statistical}">
+        *{<a href="@{error_404}">}*
+            <i class="icon-file-text"></i>
+            <span class="title">账单统计</span>
+            <span class="arrow "></span>
+        </a>
+    </li>
+</ul>
+<!-- END SIDEBAR MENU -->
+</div>
+<!-- END SIDEBAR -->
+<!-- BEGIN PAGE -->
+<div class="page-content">
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>portlet Settings</h3>
+    </div>
+    <div class="modal-body">
+        <p>Here will be a configuration form</p>
+    </div>
+</div>
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN STYLE CUSTOMIZER -->
+
+        <!-- END BEGIN STYLE CUSTOMIZER -->
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            日间房房型管理<small>房型修改于查看</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="@{index()}">首页</a>
+                <i class="icon-angle-right"></i>
+            </li>
+
+            <li><a href="#">日间房房型管理</a></li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+<div class="span12">
+<!-- BEGIN EXAMPLE TABLE PORTLET-->
+<div class="portlet box green">
+<div class="portlet-title">
+    <div class="caption"><i class="icon-globe"></i>房型基本信息</div>
+    <div class="tools">
+        <a href="javascript:;" class="collapse"></a>
+    </div>
+</div>
+<div class="portlet-body">
+<div class="btn-group">
+
+    <button id="btnadd" class="btn green" href="#stack1" data-toggle="modal">
+
+        添加 <i class="icon-plus"></i>
+
+    </button>
+
+</div>
+<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+<thead>
+<tr>
+    <th>房型</th>
+    <th>床型</th>
+    <th>早餐</th>
+    <th>宽带</th>
+    <th>爱尚售价</th>
+    <th>门市价</th>
+    <th>预留余房量</th>
+    <th>佣金比率</th>
+    <th>固定佣金</th>
+    <th>状态</th>
+    <th style="display:none;">面积</th>
+    <th style="display:none;">楼层</th>
+    <th style="display:none;">床铺</th>
+    <th>修改</th>
+    <th>删除</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<!--固定佣金MODAL开始-->
+    <div id="responsive_fixed" class="modal hide fade" tabindex="-1" data-width="760">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>添加房型</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h4>房型</h4>
+                    *{<p><input class="span12 m-wrap" type="text" name="addroomtype" disabled/></p>}*
+                    <p><input type="text" class="span12 m-wrap" name="addroomtype"></p>
+                    <h4>床型</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addbedtype"></p>
+                    <h4>早餐</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addbreakfast"></p>
+                    <h4>宽带</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addnetwork"></p>
+                    <h4>爱上售价</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addloveprice"></p>
+                    <h4>预留余房量</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addpreroom"></p>
+
+                </div>
+                <div class="span6">
+                    <h4>面积 ㎡</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addarea"></p>
+                    <h4>楼层</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addfloot"></p>
+                    <h4>床铺</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addbednumber"></p>
+                    <h4>房间图片</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addpicture"></p>
+                    <h4>门市价</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addprice"></p>
+                    <h4>固定佣金</h4>
+                    <p><input type="text" class="span12 m-wrap" name="fixedcommission"></p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn">关闭</button>
+            <button type="button" class="btn blue" id="audit">提交审核</button>
+        </div>
+    </div>
+<!--固定佣金MODAL结束-->
+<!--佣金比率MODALS开始-->
+    <div id="responsive_rate" class="modal hide fade" tabindex="-1" data-width="760">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>添加房型</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h4>房型</h4>
+                    *{<p><input class="span12 m-wrap" type="text" name="addroomtype2" disabled/></p>}*
+                    <p><input type="text" class="span12 m-wrap" name="addroomtype2"></p>
+                    <h4>床型</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addbedtype2"></p>
+                    <h4>早餐</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addbreakfast2"></p>
+                    <h4>宽带</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addnetwork2"></p>
+                    <h4>爱上售价</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addloveprice2"></p>
+                    <h4>预留余房量</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addpreroom2"></p>
+                </div>
+                <div class="span6">
+                    <h4>面积 ㎡</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addarea2"></p>
+                    <h4>楼层</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addfloot2"></p>
+                    <h4>床铺</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addbednumber2"></p>
+                    <h4>房间图片</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addpicture2"></p>
+                    <h4>门市价</h4>
+                    <p><input type="text" class="span12 m-wrap" name="addprice2"></p>
+                    <h4>佣金比率</h4>
+                    <p><input type="text" class="span12 m-wrap" name="commissionrate"></p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn">关闭</button>
+            <button type="button" class="btn blue" id="audit2">提交审核</button>
+        </div>
+    </div>
+<!--佣金比率MODALS 结束-->
+<!--隐藏MODALS开始固定佣金or佣金比率-->
+    <div id="stack1" class="modal hide fade" tabindex="-1" data-focus-on="input:first">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>选择一种方式填写房型</h3>
+        </div>
+        <div class="modal-body">
+            <a class="btn green" data-toggle="modal" href="#responsive_fixed">固定佣金</a>
+            <a class="btn blue" data-toggle="modal" href="#responsive_rate">佣金比率</a>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn">关闭</button>
+            *{<button type="button" class="btn red">Ok</button>}*
+        </div>
+    </div>
+<!--隐藏MODALS 结束-->
+</div>
+<!-- END EXAMPLE TABLE PORTLET-->
+<!-- BEGIN EXAMPLE TABLE PORTLET-->
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+<!-- END PAGE -->
+</div>
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="footer-inner">
+        2013 &copy;
+    </div>
+    <div class="footer-tools">
+			<span class="go-top">
+			<i class="icon-angle-up"></i>
+			</span>
+    </div>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<script src="../public/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script src="../public/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="../public/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="../public/media/js/bootstrap.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="media/js/excanvas.min.js"></script>
+<script src="media/js/respond.min.js"></script>
+<![endif]-->
+<script src="../public/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../public//js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../public/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="../public/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="../public/media/js/select2.min.js"></script>
+<script type="text/javascript" src="../public/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../public/media/js/DT_bootstrap.js"></script>
+<script type="text/javascript" src="../public/media/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="../public/media/js/bootstrap-modalmanager.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="../public/media/js/app.js"></script>
+<script src="../public/media/js/table-advanced-daytime.js"></script>
+<script src="../public/media/js/ui-modals.js"></script>
+<script>
+    jQuery(document).ready(function() {
+        App.init();
+        TableAdvanced.init();
+    });
+</script>
+*{固定佣金还是佣金比率modal}*
+<script>
+    $('#responsive_fixed').on('show', function () {
+        $('#stack1').modal('hide');
+    })
+    $('#responsive_rate').on('show', function () {
+        $('#stack1').modal('hide');
+    })
+</script>
+*{添加固定佣金房型}*
+<script>
+    $("#audit").click(function(){
+        alert(document.getElementsByName("addroomtype")[0].value);
+            $.ajax({
+                type:"post",
+                url:"@{manager.RoomControl.fixtypesave()}",//传入action来处理addpreroom2
+                data: "addroomtype="+document.getElementsByName("addroomtype")[0].value+"&addbedtype="+document.getElementsByName("addbedtype")[0].value
+                        +"&addbreakfast="+document.getElementsByName("addbreakfast")[0].value+"&addnetwork="+document.getElementsByName("addnetwork")[0].value
+                        +"&addloveprice="+document.getElementsByName("addloveprice")[0].value+"&addarea="+document.getElementsByName("addarea")[0].value
+                        +"&addfloot="+document.getElementsByName("addfloot")[0].value+"&addbednumber="+document.getElementsByName("addbednumber")[0].value
+                        +"&addprice="+document.getElementsByName("addprice")[0].value+"&fixedcommission="+document.getElementsByName("fixedcommission")[0].value
+                        +"&addpreroom="+document.getElementsByName("addpreroom")[0].value+"&ttt="+Math.random(),
+                dataType: "text",
+                error:function(){
+                    alert("服务器繁忙，请稍候在试！");
+                },
+                success:function(msg){
+                    if(msg != null){
+                        alert(msg);
+                        $('#responsive_fixed').modal('hide');
+                        location.reload();
+                    }
+                }
+            })
+    });
+</script>
+*{添加佣金比率房型}*
+<script>
+    $("#audit2").click(function(){
+        alert(document.getElementsByName("addroomtype2")[0].value);
+        $.ajax({
+            type:"post",
+            url:"@{manager.RoomControl.ratetypesave()}",//传入action来处理
+            data: "addroomtype2="+document.getElementsByName("addroomtype2")[0].value+"&addbedtype2="+document.getElementsByName("addbedtype2")[0].value
+                    +"&addbreakfast2="+document.getElementsByName("addbreakfast2")[0].value+"&addnetwork2="+document.getElementsByName("addnetwork2")[0].value
+                    +"&addloveprice2="+document.getElementsByName("addloveprice2")[0].value+"&addarea2="+document.getElementsByName("addarea2")[0].value
+                    +"&addfloot2="+document.getElementsByName("addfloot2")[0].value+"&addbednumber2="+document.getElementsByName("addbednumber2")[0].value
+                    +"&addprice2="+document.getElementsByName("addprice2")[0].value+"&commissionrate="+document.getElementsByName("commissionrate")[0].value
+                    +"&addpreroom2="+document.getElementsByName("addpreroom2")[0].value+"&ttt="+Math.random(),
+            dataType: "text",
+            error:function(){
+                alert("服务器繁忙，请稍候在试！");
+            },
+            success:function(msg){
+                if(msg != null){
+                    alert(msg);
+                    $('#responsive_rate').modal('hide');
+                    location.reload();
+                }
+            }
+        })
+    });
+</script>
+*{删除一种房型}*
+<script>
+    $("#sample_1 a.delete").click(function(){
+       // alert("确定要删除"+this.id);
+        if(confirm('确定删除？')) {
+            alert('确定');
+            $.ajax({
+                type:"post",
+                url:"@{manager.RoomControl.deletedaytime()}",//传入action来处理
+                data: "&roomtype="+this.id+"&ttt="+Math.random(),
+                dataType: "text",
+                error:function(){
+                    alert("服务器繁忙，请稍候在试！");
+                },
+                success:function(msg){
+                    if(msg != null){
+                        //alert(msg);
+                        location.reload();
+                    }
+                }
+            });
+        } else {
+            alert('取消');
+        }
+    });
+</script>
+*{全局变量辅助修改时寻找对应的房型信息}*
+<script>
+    $(function(){
+       var updateid = null;
+    });
+</script>
+<script>
+    $("#sample_1 a.edit").click(function(){
+        updateid = this.id;
+        $.ajax({
+            type:"post",
+            url:"@{manager.RoomControl.selectupdateinf()}",//传入action来处理
+            data: "&roomtype="+updateid+"&ttt="+Math.random(),
+            dataType: "json",
+            error:function(){
+                alert("服务器繁忙，请稍候在试！");
+            },
+            success:function(msg){
+                if(msg != null){
+                    //alert(msg);
+                    //固定佣金
+                    $("input[name='addroomtype']").val(msg.roomtype);
+                    $("input[name='addbedtype']").val(msg.bed);
+                    $("input[name='addbreakfast']").val(msg.breakfast);
+                    $("input[name='addnetwork']").val(msg.network);
+                    $("input[name='addloveprice']").val(msg.loveprice);
+                    $("input[name='addpreroom']").val(msg.preroom);
+                    $("input[name='addarea']").val(msg.area);
+                    $("input[name='addfloot']").val(msg.floor);
+                    $("input[name='addbednumber']").val(msg.bednumber);
+//                    $("input[name='addpicture']").val();
+                    $("input[name='addprice']").val(msg.publicprice);
+                    $("input[name='fixedcommission']").val(msg.fixedcommission);
+                    //佣金比率
+                    $("input[name='addroomtype2']").val(msg.roomtype);
+                    $("input[name='addbedtype2']").val(msg.bed);
+                    $("input[name='addbreakfast2']").val(msg.breakfast);
+                    $("input[name='addnetwork2']").val(msg.network);
+                    $("input[name='addloveprice2']").val(msg.loveprice);
+                    $("input[name='addpreroom2']").val(msg.preroom);
+                    $("input[name='addarea2']").val(msg.area);
+                    $("input[name='addfloot2']").val(msg.floor);
+                    $("input[name='addbednumber2']").val(msg.bednumber);
+//                    $("input[name='addpicture']").val();
+                    $("input[name='addprice2']").val(msg.publicprice);
+                    $("input[name='commissionrate']").val(msg.commissionrate);
+                }else{
+                    alert("出错！");
+                }
+            }
+        })
+
+    });
+</script>
+<script>
+    $("#btnadd").click(function(){
+//        updateid = 0;
+//固定佣金至空
+        $("input[name='addroomtype']").val("");
+        $("input[name='addbedtype']").val("");
+        $("input[name='addbreakfast']").val("");
+        $("input[name='addnetwork']").val("");
+        $("input[name='addloveprice']").val("");
+        $("input[name='addpreroom']").val("");
+        $("input[name='addarea']").val("");
+        $("input[name='addfloot']").val("");
+        $("input[name='addbednumber']").val("");
+//      $("input[name='addpicture']").val();
+        $("input[name='addprice']").val("");
+        $("input[name='fixedcommission']").val("");
+//佣金比率至空
+        $("input[name='addroomtype2']").val("");
+        $("input[name='addbedtype2']").val("");
+        $("input[name='addbreakfast2']").val("");
+        $("input[name='addnetwork2']").val("");
+        $("input[name='addloveprice2']").val("");
+        $("input[name='addpreroom2']").val("");
+        $("input[name='addarea2']").val("");
+        $("input[name='addfloot2']").val("");
+        $("input[name='addbednumber2']").val("");
+//      $("input[name='addpicture']").val();
+        $("input[name='addprice2']").val("");
+        $("input[name='commissionrate']").val("");
+    });
+</script>
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+<!-- END BODY -->
+</html>

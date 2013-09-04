@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+    <meta charset="utf-8"/>
+
+    <title>Hotel | Hotel Information</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <meta content="" name="description"/>
+
+    <meta content="" name="author"/>
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link href="../public/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/style.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+    <link href="../public/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/bootstrap-fileupload.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/jquery.gritter.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/chosen.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/select2_metro.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/jquery.tagsinput.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/clockface.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/bootstrap-wysihtml5.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/datepicker.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/timepicker.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/colorpicker.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/bootstrap-toggle-buttons.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/daterangepicker.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/datetimepicker.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/multi-select-metro.css"/>
+
+    <link href="../public/media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+
+    <!-- END PAGE LEVEL STYLES -->
+
+    <link rel="shortcut icon" href="../public/media/image/favicon.ico"/>
+    <script src="../public/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+*{获取hotel信息}*
+    <script>
+
+        $.ajax({
+            type: "post",
+            url: "hotel/select", //servlet的url，注意要组合成table的html然后返回就行了
+            dateType: 'json',
+            success: function (msg) {
+//            alert(msg.hotelName);
+                if (msg == null) {
+                    alert("尚未填写酒店信息！");
+                } else {
+                    $("#ihotelname")[0].value = msg.hotelName;
+                    $("#ihoteladdress")[0].value = msg.hotelAddress;
+                    $("#ilowest_price")[0].value = msg.hotelPrice;
+                    $("#ifax")[0].value = msg.fax;
+                    $("#iphone")[0].value = msg.telephone;
+                    $("#idetails")[0].value = msg.details;
+                }
+            },
+            error: function (xhr) {
+                alert("尚未填写酒店信息！");
+            }
+        });
+
+    </script>
+    <!--消息推送 -->
+
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+<!-- BEGIN HEADER -->
+
+<div class="header navbar navbar-inverse navbar-fixed-top">
+
+    <!-- BEGIN TOP NAVIGATION BAR -->
+
+    <div class="navbar-inner">
+
+        <div class="container-fluid">
+
+            <!-- BEGIN LOGO -->
+
+            <a class="brand" href="index.html">
+
+                <img src="../public/media/image/logo.png" alt="logo"/>
+
+            </a>
+
+            <!-- END LOGO -->
+
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+                <img src="../public/media/image/menu-toggler.png" alt=""/>
+
+            </a>
+
+            <!-- END RESPONSIVE MENU TOGGLER -->
+
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <ul class="nav pull-right"><!-- BEGIN NOTIFICATION DROPDOWN -->
+                <li class="dropdown" id="header_notification_bar">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-warning-sign"></i>
+                        <span id="msgnum" class="badge">6</span>
+                    </a>
+                    <ul class="dropdown-menu extended notification">
+                        <li>
+                            <p>您有6个订单需要处理</p>
+                        </li>
+                        <li class="external">
+                            <a href="@{ordermanager}">查看所有订单 <i class="m-icon-swapright"></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END NOTIFICATION DROPDOWN -->
+
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+
+                <li class="dropdown user">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        <img alt="" src="../public/media/image/avatar1_small.jpg"/>
+
+                        <span class="username">Bob Nilson</span>
+
+                        <i class="icon-angle-down"></i>
+
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li><a href="@{logout}"><i class="icon-key"></i> 注销</a></li>
+
+                    </ul>
+
+                </li>
+
+                <!-- END USER LOGIN DROPDOWN -->
+
+            </ul>
+
+            <!-- END TOP NAVIGATION MENU -->
+
+        </div>
+
+    </div>
+
+    <!-- END TOP NAVIGATION BAR -->
+
+</div>
+
+<!-- END HEADER -->
+
+<!-- BEGIN CONTAINER -->
+
+<div class="page-container row-fluid">
+
+<!-- BEGIN SIDEBAR -->
+
+<div class="page-sidebar nav-collapse collapse">
+
+    <!-- BEGIN SIDEBAR MENU -->
+
+    <ul class="page-sidebar-menu">
+
+        <li>
+
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+            <div class="sidebar-toggler hidden-phone"></div>
+
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+        </li>
+
+        <li>
+
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+
+            <form class="sidebar-search">
+
+                <div>
+
+                *{<input type="button" class="submit" value=" " />}*
+
+                </div>
+
+            </form>
+
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+
+        </li>
+
+        <li class="">
+            <a href="@{index()}">
+                <i class="icon-home"></i>
+                <span class="title">首页</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="start active ">
+            <a href="javascript:;">
+                <i class="icon-gift"></i>
+                <span class="title">酒店基本信息</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@{hotel}">
+                        <i class="icon-time"></i>
+                        酒店</a>
+                </li>
+                <li>
+                    <a href="@{updateinformation}">
+                        <i class="icon-group"></i>
+                        酒店负责人信息</a>
+                </li>
+                <li>
+                    <a href="@{roommanager}">
+                        <i class="icon-coffee"></i>
+                        日间房房型管理</a>
+                </li>
+                <li>
+                    <a href="@{nightroommanager}">
+                        <i class="icon-coffee"></i>
+                        夜间房房型管理</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="" href="javascript:;">
+                <i class="icon-sitemap"></i>
+                <span class="title">酒店余房管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@{daytimeroom}">
+                        <i class="icon-time"></i>
+                        日间房管理</a>
+                </li>
+                <li>
+                    <a href="@{nighttimeroom}">
+                        <i class="icon-coffee"></i>
+                        夜间房管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="">
+                <i class="icon-table"></i>
+                <span class="title">订单管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@{ordermanager}">
+                        <i class="icon-time"></i>
+                        日间房订单管理</a>
+                </li>
+                <li>
+                    <a href="@{nightordermanager}">
+                        <i class="icon-coffee"></i>
+                        夜间房订单管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="@{statistical}">
+            *{<a href="@{error_404}">}*
+                <i class="icon-file-text"></i>
+                <span class="title">账单统计</span>
+                <span class="arrow "></span>
+            </a>
+        </li>
+
+    </ul>
+
+    <!-- END SIDEBAR MENU -->
+
+</div>
+
+<!-- END SIDEBAR -->
+
+<!-- BEGIN PAGE -->
+
+<div class="page-content">
+
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+<div id="portlet-config" class="modal hide">
+
+    <div class="modal-header">
+
+        <button data-dismiss="modal" class="close" type="button"></button>
+
+        <h3>portlet Settings</h3>
+
+    </div>
+
+    <div class="modal-body">
+
+        <p>Here will be a configuration form</p>
+
+    </div>
+
+</div>
+
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+<!-- BEGIN PAGE CONTAINER-->
+
+<div class="container-fluid">
+
+<!-- BEGIN PAGE HEADER-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN STYLE CUSTOMIZER -->
+
+
+        <!-- END BEGIN STYLE CUSTOMIZER -->
+
+        <h3 class="page-title">
+
+            酒店
+
+            <small>酒店信息修改和查看</small>
+
+        </h3>
+
+        <ul class="breadcrumb">
+
+            <li>
+
+                <i class="icon-home"></i>
+
+                <a href="index.html">首页</a>
+
+                <span class="icon-angle-right"></span>
+
+            </li>
+
+            <li><a href="#">酒店</a></li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+
+        <div class="portlet box blue">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-reorder"></i>酒店信息详情</div>
+
+                <div class="tools">
+
+                    <a href="javascript:;" class="collapse"></a>
+
+                </div>
+
+            </div>
+
+            <div class="portlet-body form">
+
+                <!-- BEGIN FORM-->
+
+                <form action="@{manager.HotelControl.save()}" method="post" class="form-horizontal" enctype='multipart/form-data'>
+
+                    <div class="control-group">
+                        <img src="@{manager.HotelControl.photo()}" alt="" class="controls">
+                    </div>
+                    <p></p>
+
+                    <div class="control-group">
+
+                        <label class="control-label">图片上传</label>
+
+                        <div class="controls">
+
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+
+                                <div class="input-append">
+
+                                    <div class="uneditable-input">
+
+                                        <i class="icon-file fileupload-exists"></i>
+
+                                        <span class="fileupload-preview"></span>
+
+                                    </div>
+
+													<span class="btn btn-file">
+
+													<span class="fileupload-new">选择图片</span>
+
+													<span class="fileupload-exists">重选</span>
+
+													<input type="file" class="default" name="hotel.photo"/>
+
+													</span>
+
+                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!--调整间距的粗暴方法需后期修改-->
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户端所显示的正面照片</a>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <label class="control-label">酒店名称</label>
+
+                        <div class="controls">
+
+                            <input type="text" id="ihotelname" name="hotel.hotelName" placeholder="请填写酒店的名称"
+                                   class="span6 m-wrap popovers" data-trigger="hover" data-content="请写全酒店的名称"
+                                   data-original-title="酒店名称"/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <label class="control-label">酒店地址</label>
+
+                        <div class="controls">
+
+                            <input type="text" id="ihoteladdress" name="hotel.hotelAddress" placeholder="请填写酒店的地址"
+                                   class="span6 m-wrap popovers" data-trigger="hover" data-content="请写出酒店的详细地址方便客户寻找"
+                                   data-original-title="酒店地址"/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <label class="control-label">最低价格</label>
+
+                        <div class="controls">
+
+                            <input type="text" id="ilowest_price" name="hotel.hotelPrice" placeholder="请填写酒店最低售价"
+                                   class="span6 m-wrap popovers" data-trigger="hover" data-content="请填入酒店锁提供的所有房型中的最低价格"
+                                   data-original-title="酒店入住的最低价格"/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <label class="control-label">电话</label>
+
+                        <div class="controls">
+
+                            <input type="text" id="iphone" name="hotel.telephone" placeholder="请填写酒店的联系电话"
+                                   class="span6 m-wrap popovers" data-trigger="hover" data-content="请填写酒店的联系电话，方便客户联系"
+                                   data-original-title="酒店电话"/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <label class="control-label">传真</label>
+
+                        <div class="controls">
+
+                            <input type="text" id="ifax" name="hotel.fax" placeholder="请填写酒店传真"
+                                   class="span6 m-wrap popovers" data-trigger="hover" data-content="请填写酒店的传真号，以便商务客户等需求"
+                                   data-original-title="酒店传真"/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <label class="control-label">酒店介绍（简介明了）</label>
+
+                        <div class="controls">
+
+                            <textarea id="idetails" name="hotel.details" class="span6 m-wrap" rows="3"
+                                      placeholder="您还没有填写酒店的介绍"></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button id="upinfo" class="btn blue">提交</button>
+
+                        <button type="button" class="btn">取消</button>
+
+                    </div>
+
+                </form>
+
+                <!-- END FORM-->
+
+            </div>
+
+        </div>
+
+        <!-- END SAMPLE FORM PORTLET-->
+
+    </div>
+
+</div>
+
+
+<!-- END PAGE CONTENT-->
+
+</div>
+
+<!-- END PAGE CONTAINER-->
+
+</div>
+
+<!-- END PAGE -->
+
+</div>
+
+<!-- END CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+
+<div class="footer">
+
+    <div class="footer-inner">
+
+        2013 &copy;
+    </div>
+
+    <div class="footer-tools">
+
+			<span class="go-top">
+
+			<i class="icon-angle-up"></i>
+
+			</span>
+
+    </div>
+
+</div>
+
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+<!-- BEGIN CORE PLUGINS -->
+
+<script src="../public/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+
+<script src="../public/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--[if lt IE 9]>
+
+<script src="../public/media/js/excanvas.min.js"></script>
+
+<script src="../public/media/js/respond.min.js"></script>
+
+<![endif]-->
+
+<script src="../public/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery.blockui.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<script type="text/javascript" src="../public/media/js/ckeditor.js"></script>
+
+<script type="text/javascript" src="../public/media/js/bootstrap-fileupload.js"></script>
+
+<script type="text/javascript" src="../public/media/js/chosen.jquery.min.js"></script>
+
+<script type="text/javascript" src="../public/media/js/select2.min.js"></script>
+
+<script type="text/javascript" src="../public/media/js/wysihtml5-0.3.0.js"></script>
+
+<script type="text/javascript" src="../public/media/js/bootstrap-wysihtml5.js"></script>
+
+<script type="text/javascript" src="../public/media/js/jquery.tagsinput.min.js"></script>
+
+<script type="text/javascript" src="../public/media/js/jquery.toggle.buttons.js"></script>
+
+<script type="text/javascript" src="../public/media/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="../public/media/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript" src="../public/media/js/clockface.js"></script>
+
+<script type="text/javascript" src="../public/media/js/date.js"></script>
+
+<script type="text/javascript" src="../public/media/js/daterangepicker.js"></script>
+
+<script type="text/javascript" src="../public/media/js/bootstrap-colorpicker.js"></script>
+
+<script type="text/javascript" src="../public/media/js/bootstrap-timepicker.js"></script>
+
+<script type="text/javascript" src="../public/media/js/jquery.inputmask.bundle.min.js"></script>
+
+<script type="text/javascript" src="../public/media/js/jquery.input-ip-address-control-1.0.min.js"></script>
+
+<script type="text/javascript" src="../public/media/js/jquery.multi-select.js"></script>
+
+<script src="../public/media/js/bootstrap-modal.js" type="text/javascript"></script>
+
+<script src="../public/media/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+<script src="../public/media/js/app.js"></script>
+
+<script src="../public/media/js/form-components.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+
+<script>
+
+    jQuery(document).ready(function () {
+
+        // initiate layout and plugins
+
+        App.init();
+
+        FormComponents.init();
+
+    });
+
+    $("#upinfo").click(function (index) {
+        alert(document.getElementsByName("hotelname")[0].value);
+//            $.ajax({
+//                type:"post",
+//                url:"/hotel/save",//传入action来处理
+//                data: "hotelname="+document.getElementsByName("hotelname")[0]+"&hoteladdress="+document.getElementsByName("hoteladdress")[0]+"&lowest_price="+document.getElementsByName("lowest_price")[0]+"&phone="+document.getElementsByName("phone")[0]+"&fax="+document.getElementsByName("fax")[0]+"&details="+document.getElementsByName("details")[0]+"&ttt="+Math.random(),
+//                dataType: "text",
+//                error:function(){
+//                    alert("服务器繁忙，请稍候在试！");
+//                },
+//                success:function(msg){
+//                    var response = xmlhttp.responseText;
+//
+//                    if(msg != null){
+//
+//                        alert(msg);
+//                    }
+//                }
+//            })
+    });
+
+    //        $("upinfo").click(function(index){
+    //                alert("hotelname="+document.getElementsByName("hotelname")[0].value);
+    //            $().ajax({
+    //                type:"post",
+    //                url:"/hotel/save",//传入action来处理
+    //                data: "hotelname="+document.getElementsByName("hotelname")[0]+"&hoteladdress="+document.getElementsByName("hoteladdress")[0]+"&lowest_price="+document.getElementsByName("lowest_price")[0]+"&phone="+document.getElementsByName("phone")[0]+"&fax="+document.getElementsByName("fax")[0]+"&details="+document.getElementsByName("details")[0]+"&ttt="+Math.random(),
+    //                dataType: "text",
+    //                error:function(){
+    //                    alert("服务器繁忙，请稍候在试！");
+    //                },
+    //                success:function(msg){
+    //
+    //                    if(msg != null){
+    //
+    //                        alert(msg);
+    //                    }
+    //
+    //                }
+    ////            });
+    //        )
+</script>
+
+<!-- END JAVASCRIPTS -->
+
+<script type="text/javascript">  var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37564768-1']);
+_gaq.push(['_setDomainName', 'keenthemes.com']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+(function () {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();</script>
+</body>
+
+<!-- END BODY -->
+
+</html>

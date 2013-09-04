@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Hotel | Daytime Room</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <meta content="" name="description" />
+
+    <meta content="" name="author" />
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link href="../public/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/style.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../public/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+    <link href="../public/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/select2_metro.css" />
+
+    <link rel="stylesheet" href="../public/media/css/DT_bootstrap.css" />
+
+    <link rel="stylesheet" type="text/css" href="../public/media/css/timepicker.css" />
+
+    <!-- END PAGE LEVEL STYLES -->
+
+    <link rel="shortcut icon" href="../public/media/image/favicon.ico" />
+
+    <script src="../public/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+    <script>
+
+        $.ajax({
+            type:"post",
+            url: "room/selectdtf", //servlet的url，注意要组合成table的html然后返回就行了
+            cache: false,
+            dateType: 'html',
+            success: function (data) {
+                $("#sunday").html(data);
+                //alert(data);
+            },
+            error: function (xhr) { alert("加载失败！"); }
+        });
+
+    </script>
+
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+<!-- BEGIN HEADER -->
+
+<div class="header navbar navbar-inverse navbar-fixed-top">
+
+<!-- BEGIN TOP NAVIGATION BAR -->
+
+<div class="navbar-inner">
+
+<div class="container-fluid">
+
+<!-- BEGIN LOGO -->
+
+<a class="brand" href="index.html">
+
+    <img src="../public/media/image/logo.png" alt="logo" />
+
+</a>
+
+<!-- END LOGO -->
+
+<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+    <img src="../public/media/image/menu-toggler.png" alt="" />
+
+</a>
+
+<!-- END RESPONSIVE MENU TOGGLER -->
+
+<!-- BEGIN TOP NAVIGATION MENU -->
+
+<ul class="nav pull-right">
+
+<!-- BEGIN NOTIFICATION DROPDOWN -->
+
+<li class="dropdown" id="header_notification_bar">
+
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+        <i class="icon-warning-sign"></i>
+
+        <span class="badge">6</span>
+
+    </a>
+
+    <ul class="dropdown-menu extended notification">
+
+        <li>
+
+            <p>您有6个订单需要处理</p>
+
+        </li>
+
+        <li class="external">
+
+            <a href="@{ordermanager}">查看所有订单<i class="m-icon-swapright"></i></a>
+
+        </li>
+
+    </ul>
+
+</li>
+
+<!-- END NOTIFICATION DROPDOWN -->
+
+<!-- BEGIN USER LOGIN DROPDOWN -->
+
+<li class="dropdown user">
+
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+        <img alt="" src="../public/media/image/avatar1_small.jpg" />
+
+        <span class="username">Bob Nilson</span>
+
+        <i class="icon-angle-down"></i>
+
+    </a>
+
+    <ul class="dropdown-menu">
+
+        <li><a href="@{logout}"><i class="icon-key"></i> 注销</a></li>
+
+    </ul>
+
+</li>
+
+<!-- END USER LOGIN DROPDOWN -->
+
+</ul>
+
+<!-- END TOP NAVIGATION MENU -->
+
+</div>
+
+</div>
+
+<!-- END TOP NAVIGATION BAR -->
+
+</div>
+
+<!-- END HEADER -->
+
+<!-- BEGIN CONTAINER -->
+
+<div class="page-container row-fluid">
+
+<!-- BEGIN SIDEBAR -->
+
+<div class="page-sidebar nav-collapse collapse">
+
+    <!-- BEGIN SIDEBAR MENU -->
+
+    <ul class="page-sidebar-menu">
+
+        <li>
+
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+            <div class="sidebar-toggler hidden-phone"></div>
+
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+        </li>
+
+        <li>
+
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+
+            <form class="sidebar-search">
+
+                <div>
+
+                </div>
+
+            </form>
+
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+
+        </li>
+        <li class="">
+            <a href="@{index()}">
+                <i class="icon-home"></i>
+                <span class="title">首页</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="">
+            <a href="javascript:;">
+                <i class="icon-gift"></i>
+                <span class="title">酒店基本信息</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li >
+                    <a href="@{hotel}">
+                        <i class="icon-time"></i>
+                        酒店</a>
+                </li>
+                <li >
+                    <a href="@{updateinformation}">
+                        <i class="icon-group"></i>
+                        酒店负责人信息</a>
+                </li>
+                <li >
+                    <a href="@{roommanager}">
+                        <i class="icon-coffee"></i>
+                        日间房房型管理</a>
+                </li>
+                <li >
+                    <a href="@{nightroommanager}">
+                        <i class="icon-coffee"></i>
+                        夜间房房型管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="start active ">
+            <a class="" href="javascript:;">
+                <i class="icon-sitemap"></i>
+                <span class="title">酒店余房管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li >
+                    <a href="@{daytimeroom}">
+                        <i class="icon-time"></i>
+                        日间房管理</a>
+                </li>
+                <li >
+                    <a href="@{nighttimeroom}">
+                        <i class="icon-coffee"></i>
+                        夜间房管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="">
+                <i class="icon-table"></i>
+                <span class="title">订单管理</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li >
+                    <a href="@{ordermanager}">
+                        <i class="icon-time"></i>
+                        日间房订单管理</a>
+                </li>
+                <li >
+                    <a href="@{nightordermanager}">
+                        <i class="icon-coffee"></i>
+                        夜间房订单管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="@{statistical}">
+            *{<a href="@{error_404}">}*
+                <i class="icon-file-text"></i>
+                <span class="title">账单统计</span>
+                <span class="arrow "></span>
+            </a>
+        </li>
+
+    </ul>
+
+    <!-- END SIDEBAR MENU -->
+
+</div>
+
+<!-- END SIDEBAR -->
+
+<!-- BEGIN PAGE -->
+
+<div class="page-content">
+
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+<div id="portlet-config" class="modal hide">
+
+    <div class="modal-header">
+
+        <button data-dismiss="modal" class="close" type="button"></button>
+
+        <h3>portlet Settings</h3>
+
+    </div>
+
+    <div class="modal-body">
+
+        <p>Here will be a configuration form</p>
+
+    </div>
+
+</div>
+
+<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+<!-- BEGIN PAGE CONTAINER-->
+
+<div class="container-fluid">
+
+<!-- BEGIN PAGE HEADER-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN STYLE CUSTOMIZER -->
+
+        <!-- END BEGIN STYLE CUSTOMIZER -->
+
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+        <h3 class="page-title">
+
+            日间房管理 <small>查看和修改</small>
+
+        </h3>
+
+        <ul class="breadcrumb">
+
+            <li>
+
+                <i class="icon-home"></i>
+
+                <a href="index.html">首页</a>
+
+                <i class="icon-angle-right"></i>
+
+            </li>
+
+
+            <li><a href="#">日间房管理</a></li>
+
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+
+    </div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+        <div class="portlet box blue">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-edit"></i>日间房信息</div>
+
+                <div class="tools">
+
+                    <a href="javascript:;" class="collapse"></a>
+
+                </div>
+
+            </div>
+
+            <div class="portlet-body">
+
+                <div class="clearfix">
+
+                    <div class="btn-group">
+
+                        *{<button id="sample_editable_1_new" class="btn blue">}*
+
+                            *{添加 <i class="icon-plus"></i>}*
+
+                        *{</button>}*
+
+                    </div>
+
+                    <div class="btn-group pull-right">
+
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i>
+
+                        </button>
+
+                        <ul class="dropdown-menu pull-right">
+
+                            <li><a href="#">Print</a></li>
+
+                            <li><a href="#">Save as PDF</a></li>
+
+                            <li><a href="#">Export to Excel</a></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+
+                    <thead>
+
+                    <tr>
+                        <th hidden></th>
+
+                        <th>房型</th>
+
+                        <th>日期</th>
+
+                        <th>开售时间</th>
+
+                        <th>停售时间</th>
+
+                        <th>余房量</th>
+
+                        <th>爱尚售价</th>
+
+                        <th style="display:none;">成功入住房间数</th>
+
+                        <th>编辑</th>
+
+                        <th>停售</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="sunday">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+        <!--MODALS开始-->
+        <div id="responsive" class="modal hide fade" tabindex="-1" data-width="760">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>修改余房信息</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <h4>房型</h4>
+                        <p><input class="span12 m-wrap" type="text" name="roomtype" disabled/></p>
+                        *{<p><input type="text" class="span12 m-wrap" name="roomtype"></p>}*
+                        <h4>余房量</h4>
+                        <p><input type="text" class="span12 m-wrap" name="roomnumber"></p>
+                    </div>
+                    <div class="span6">
+                        <h4>开售时间</h4>
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append bootstrap-timepicker-component">
+                                    <input name="starttime" class="m-wrap m-ctrl-small timepicker-24" type="text" />
+                                    <span class="add-on"><i class="icon-time"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>停售时间</h4>
+                        <div class="control-group">
+                            <div class="controls">
+                                <div class="input-append bootstrap-timepicker-component">
+                                    <input name="endtime" class="m-wrap m-ctrl-small timepicker-24" type="text" />
+                                    <span class="add-on"><i class="icon-time"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                <button type="button" class="btn blue" id="updateinfo">保存</button>
+            </div>
+        </div>
+        <!--MODALS结束-->
+        <!-- END EXAMPLE TABLE PORTLET-->
+
+    </div>
+
+</div>
+
+<!-- END PAGE CONTENT -->
+
+</div>
+
+<!-- END PAGE CONTAINER-->
+
+</div>
+
+<!-- END PAGE -->
+
+</div>
+
+<!-- END CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+
+<div class="footer">
+
+    <div class="footer-inner">
+
+        2013 &copy; .
+
+    </div>
+
+</div>
+
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+<!-- BEGIN CORE PLUGINS -->
+
+<script src="../public/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+
+<script src="../public/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--[if lt IE 9]>
+
+<script src="../public/media/js/excanvas.min.js"></script>
+
+<script src="../public/media/js/respond.min.js"></script>
+
+<![endif]-->
+
+<script src="../public/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery.blockui.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+
+<script src="../public/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<script type="text/javascript" src="../public/media/js/select2.min.js"></script>
+
+<script type="text/javascript" src="../public/media/js/jquery.dataTables.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="../public/media/js/DT_bootstrap.js"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="../public/media/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<script src="../public/media/js/bootstrap-timepicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="../public/media/js/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript" src="../public/media/js/jquery.input-ip-address-control-1.0.min.js"></script>
+<script type="text/javascript" src="../public/media/js/jquery.multi-select.js"></script>
+<script src="../public/media/js/form-components.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+<script src="../public/media/js/app.js"></script>
+
+<script src="../public/media/js/Date.min.js"></script>
+
+<script src="../public/media/js/table-editable-daytimeroom-sample_editable_1.js " charset="utf-8"></script>
+
+<script src="../public/media/js/table-editable-daytimeroom-sample_editable_2.js " charset="utf-8"></script>
+
+<script>
+
+    jQuery(document).ready(function() {
+
+        App.init();
+
+        TableEditable.init();
+
+        TableEditable2.init();
+
+        FormComponents.init();
+
+    });
+
+</script>
+<script>
+        var updateid = null;
+</script>
+<script>
+    $("#sample_editable_1 a.update").click(function(){
+        updateid = this.id;
+        $.ajax({
+            type:"post",
+            url:"@{manager.MoreRoomControl.selectupdateinf()}",//传入action来处理
+            data: "&roommanagerdt="+updateid+"&ttt="+Math.random(),
+            dataType: "json",
+            error:function(){
+                alert("服务器繁忙，请稍候在试！");
+            },
+            success:function(msg){
+                if(msg != null){
+                    //alert(msg);
+                    //编辑时显示的内容
+                    $("input[name='roomtype']").val(msg.roomtype);
+                    $("input[name='roomnumber']").val(msg.roomnumber);
+                    $("input[name='starttime']").val($D(msg.starttime).format('%H:%M:%S'));
+                    $("input[name='endtime']").val($D(msg.endtime).format('%H:%M:%S'));
+                }else{
+                    alert("出错！");
+                }
+            }
+        })
+
+    });
+</script>
+*{修改余房信息}*
+<script>
+    $("#updateinfo").click(function(){
+        //alert(document.getElementsByName("starttime")[0].value);
+        $.ajax({
+            type:"post",
+            url:"@{manager.MoreRoomControl.updateinfo()}",//传入action来处理
+            data: "roomnumber="+document.getElementsByName("roomnumber")[0].value+"&roommanagerdt="+updateid+"&starttime="+document.getElementsByName("starttime")[0].value+"&endtime="+document.getElementsByName("endtime")[0].value+"&ttt="+Math.random(),
+            dataType: "text",
+            error:function(){
+                alert("服务器繁忙，请稍候在试！");
+            },
+            success:function(msg){
+                if(msg != null){
+                    alert(msg);
+                    $('#responsive').modal('hide');
+                    location.reload();
+                }
+            }
+        })
+    });
+</script>
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+
+<!-- END BODY -->
+
+</html>

@@ -5,6 +5,7 @@ import play.data.validation.Required;
 import play.db.jpa.GenericModel;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,6 +15,7 @@ import java.util.List;
  * Time: 下午7:53
  * To change this template use File | Settings | File Templates.
  */
+
 @Entity
 @Table(name="Tordernighttime")
 public class OrderNighttime extends GenericModel{
@@ -28,28 +30,35 @@ public class OrderNighttime extends GenericModel{
     public Hotel hotel;
 
     @Required
+    @ManyToOne
+    public RoomManagerNighttime roomManagerNighttime;
+
+    @Required
     public String fullname;//顾客姓名
 
     @Required
     public String roomtype;
 
-    @Required
-    public String roomnumber;
+//    @Required
+//    public String roomnumber;
+
+//    @Required
+//    public String day;
 
     @Required
-    public String day;
-
-    @Required
-    public String totalprice;
+    public double totalprice;
 
     @Required
     public String state;
 
     @Required
-    public String scheduledtime;
+    public Date scheduledtime;
 
     @Required
-    public String departuretime;
+    public Date checkintime;//入住时间
+
+    @Required
+    public Date departuretime;
 
     @Required
     public String retentiontime;
@@ -60,14 +69,16 @@ public class OrderNighttime extends GenericModel{
     @Required
     public String note;
 
+    @Required
+    @ManyToOne
+    public User user;
+
     //style="display:none;" 隐藏属性
     public void toTd(StringBuffer html){
         html.append("<tr class=\"odd\">");
         html.append("<td>"+this.id+"</td>");
         html.append("<td>"+this.fullname+"</td>");
         html.append("<td>"+this.roomtype+"</td>");
-        html.append("<td>"+this.roomnumber+"</td>");
-//      html.append("<td >"+this.day+"</td>");
         html.append("<td >"+this.totalprice+"</td>");
         html.append("<td >"+this.state+"</td>");
         html.append("<td style=\"display:none;\">"+this.scheduledtime+"</td>");
@@ -75,10 +86,10 @@ public class OrderNighttime extends GenericModel{
         html.append("<td style=\"display:none;\">"+this.retentiontime+"</td>");
         html.append("<td style=\"display:none;\">"+this.contact+"</td>");
         html.append("<td style=\"display:none;\">"+this.note+"</td>");
-        html.append("<td><a class=\"edit\" href=\"javascript:;\">客满</a></td>");
-        html.append("<td><a class=\"edit\" href=\"javascript:;\">可入住</a></td>");
-        html.append("<td><a class=\"edit\" href=\"javascript:;\">已入住</a></td>");
-        html.append("<td><a class=\"delete\" href=\"javascript:;\">未入住</a></td>");
+        html.append("<td><a id="+this.id+" class=\"full\" href=\"javascript:;\">客满</a></td>");
+        html.append("<td><a id="+this.id+" class=\"empty\" href=\"javascript:;\">可入住</a></td>");
+        html.append("<td><a id="+this.id+" class=\"in\" href=\"javascript:;\">已入住</a></td>");
+        html.append("<td><a id="+this.id+" class=\"out\" href=\"javascript:;\">未入住</a></td>");
         html.append("</tr>");
     }
 

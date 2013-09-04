@@ -68,7 +68,6 @@ public class OrderControl extends Controller {
         statistical.contact = orderdt.contact;
         statistical.note = orderdt.note;
         statistical.state = orderdt.state;
-
         statistical.save();
         orderdt.delete();
         return "成功修改！";
@@ -84,24 +83,24 @@ public class OrderControl extends Controller {
 
     public static String nightsavefull(String orderdtid){
         OrderNighttime orderdt = OrderNighttime.find("byId",orderdtid).first();
-        orderdt.state = "客满";
-        orderdt.save();
-        Statistical statistical = new Statistical();
-        statistical.checkintime = orderdt.checkintime;
-        statistical.contact = orderdt.contact;
-        statistical.orderdt_id = orderdt.id;
-        statistical.hotel = orderdt.hotel;
-        statistical.fullname = orderdt.fullname;
-        statistical.roomtype = orderdt.roomtype;
-        statistical.totalprice = orderdt.totalprice;
-        statistical.checkintime = orderdt.checkintime;
-        statistical.scheduledtime = orderdt.scheduledtime;
-        statistical.departuretime = orderdt.departuretime;
-        statistical.retentiontime = orderdt.retentiontime;
-        statistical.contact = orderdt.contact;
-        statistical.note = orderdt.note;
-        statistical.state = orderdt.state;
-        statistical.save();
+//        orderdt.state = "客满";
+//        orderdt.save();
+//        Statistical statistical = new Statistical();
+//        statistical.checkintime = orderdt.checkintime;
+//        statistical.contact = orderdt.contact;
+//        statistical.orderdt_id = orderdt.id;
+//        statistical.hotel = orderdt.hotel;
+//        statistical.fullname = orderdt.fullname;
+//        statistical.roomtype = orderdt.roomtype;
+//        statistical.totalprice = orderdt.totalprice;
+//        statistical.checkintime = orderdt.checkintime;
+//        statistical.scheduledtime = orderdt.scheduledtime;
+//        statistical.departuretime = orderdt.departuretime;
+//        statistical.retentiontime = orderdt.retentiontime;
+//        statistical.contact = orderdt.contact;
+//        statistical.note = orderdt.note;
+//        statistical.state = orderdt.state;
+//        statistical.save();
         orderdt.delete();
         return "成功修改！";
     }
@@ -110,22 +109,6 @@ public class OrderControl extends Controller {
         OrderNighttime orderdt = OrderNighttime.find("byId",orderdtid).first();
         orderdt.state = "可入住";
         orderdt.save();
-        Statistical statistical = new Statistical();
-        statistical.checkintime = orderdt.checkintime;
-        statistical.contact = orderdt.contact;
-        statistical.orderdt_id = orderdt.id;
-        statistical.hotel = orderdt.hotel;
-        statistical.fullname = orderdt.fullname;
-        statistical.roomtype = orderdt.roomtype;
-        statistical.totalprice = orderdt.totalprice;
-        statistical.checkintime = orderdt.checkintime;
-        statistical.scheduledtime = orderdt.scheduledtime;
-        statistical.departuretime = orderdt.departuretime;
-        statistical.retentiontime = orderdt.retentiontime;
-        statistical.contact = orderdt.contact;
-        statistical.note = orderdt.note;
-        statistical.state = orderdt.state;
-        statistical.save();
         return "成功修改！";
     }
 

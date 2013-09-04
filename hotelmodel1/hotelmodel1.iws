@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="230e6ec5-c484-49b6-a87d-cca58ce868e5" name="Default" comment="" />
+    <list default="true" id="230e6ec5-c484-49b6-a87d-cca58ce868e5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/frontend/OrderDaytimes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../HotelManager/HotelManager.ipr" afterPath="$PROJECT_DIR$/../HotelManager/HotelManager.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../HotelManager/HotelManager.iws" afterPath="$PROJECT_DIR$/../HotelManager/HotelManager.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hotelmodel1.ipr" afterPath="$PROJECT_DIR$/hotelmodel1.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hotelmodel1.iws" afterPath="$PROJECT_DIR$/hotelmodel1.iws" />
+    </list>
     <ignored path="hotelmodel1.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/application.conf" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1373906914926" ignored="false" />
@@ -28,7 +34,7 @@
     <file path="/OrderControl.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1376647148111" ignored="false" />
     <file path="/Orders.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1375844715157" ignored="false" />
     <file path="/Rooms.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1375844734830" ignored="false" />
-    <file path="/Dummy.txt" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1376053782419" ignored="false" />
+    <file path="/Dummy.txt" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378275489647" ignored="false" />
     <file path="/confirm.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1376651978731" ignored="false" />
     <file path="$USER_HOME$/booking/app/views/Hotels/confirmBooking.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1376651869302" ignored="false" />
     <file path="/confirmBooking.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1376651857177" ignored="false" />
@@ -61,7 +67,7 @@
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/models/Registration.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377968790092" ignored="false" />
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/models/Serial.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377968849621" ignored="false" />
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/views/manager/Application/daytimeroom.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377970209778" ignored="false" />
-    <file path="$PROJECT_DIR$/../G4/HotelManager/app/views/manager/Application/hotel.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377970964012" ignored="false" />
+    <file path="$PROJECT_DIR$/../G4/HotelManager/app/views/manager/Application/hotel.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378025630891" ignored="false" />
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/views/manager/Application/index.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377970340190" ignored="false" />
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/views/manager/Application/logs.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377970352864" ignored="false" />
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/views/manager/Application/nightordermanager.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377970365356" ignored="false" />
@@ -76,10 +82,10 @@
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/controllers/manager/MoreRoomControl.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377975140918" ignored="false" />
     <file path="/MoreRoomControl.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377974942621" ignored="false" />
     <file path="$PROJECT_DIR$/../G4/HotelManager/app/models/RoomManagerDaytime.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1377975334545" ignored="false" />
-    <file path="$USER_HOME$/Documents/GitHub/ASW/G4/HotelManager/app/views/manager/Application/hotel.html" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378025630891" ignored="false" />
-    <file path="$USER_HOME$/Documents/GitHub/ASW/G4/HotelManager/app/controllers/manager/HotelControl.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378024950198" ignored="false" />
+    <file path="$PROJECT_DIR$/../G4/HotelManager/app/controllers/manager/HotelControl.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378024950198" ignored="false" />
     <file path="$PROJECT_DIR$/../samples-and-tests/jobboard/db/h2/play.h2.db" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378024812696" ignored="false" />
     <file path="$PROJECT_DIR$/../samples-and-tests/jobboard/app/controllers/Administration.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378024263105" ignored="false" />
+    <file path="/OrderDaytimes.java" changelist="230e6ec5-c484-49b6-a87d-cca58ce868e5" time="1378275523787" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,10 +152,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Application.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Application.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/frontend/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="29" selection-start="255" selection-end="255" vertical-scroll-proportion="0.14457831">
+            <state line="12" column="29" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDaytimes.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/frontend/OrderDaytimes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="39" selection-start="248" selection-end="248" vertical-scroll-proportion="0.21648216">
               <folding />
             </state>
           </provider>
@@ -227,15 +242,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HotelControl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/frontend/HotelControl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -243,10 +249,17 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/Admin.java" />
         <option value="$PROJECT_DIR$/app/models/RoomTypeDaytime.java" />
         <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/views/frontmain.html" />
@@ -262,16 +275,17 @@
         <option value="$PROJECT_DIR$/app/controllers/frontend/Registrations.java" />
         <option value="$PROJECT_DIR$/app/models/Registration.java" />
         <option value="$PROJECT_DIR$/app/models/Serial.java" />
+        <option value="$PROJECT_DIR$/app/controllers/frontend/OrderDaytimes.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1432" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -299,6 +313,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -447,7 +462,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -458,7 +472,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -466,12 +480,12 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -515,19 +529,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -556,6 +557,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -569,6 +583,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -590,13 +611,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="Server" type="Application" factoryName="Application">
@@ -683,7 +697,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="1432" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -700,7 +714,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21048851" sideWeight="0.74553573" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21017157" sideWeight="0.74553573" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2544643" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -780,13 +794,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/RoomManagerDaytime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="43" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="16" selection-start="510" selection-end="510" vertical-scroll-proportion="0.37209302">
@@ -887,7 +894,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/frontend/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="255" selection-end="255" vertical-scroll-proportion="0.14457831">
+        <state line="12" column="29" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/frontend/OrderDaytimes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="39" selection-start="248" selection-end="248" vertical-scroll-proportion="0.21648216">
           <folding />
         </state>
       </provider>
